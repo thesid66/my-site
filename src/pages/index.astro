@@ -888,7 +888,7 @@ const processSteps = [
 
         <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <!-- Left sticky summary only -->
-          <div class="lg:sticky lg:top-[25vh] lg:self-start">
+          <div class="lg:sticky lg:top-[28vh] lg:self-start">
             <div class="rounded-4xl border border-white/10 bg-slate-950/70 p-8 shadow-2xl">
               <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
                 Career Snapshot
@@ -926,17 +926,17 @@ const processSteps = [
           <div class="relative">
             <div class="absolute left-6 top-8 hidden h-full w-px bg-white/10 sm:block"></div>
 
-            <div class="sticky">
+            <div class="sticky space-y-15">
               {
                 experiences.map((experience, index) => (
                   <div
-                    class="sticky"
-                    style={`top: ${7 + index * 3.85}rem; z-index: ${50 + index};`}
+                    class="sticky top-28"
+                    style={`top: ${7 + index * 3.2}rem; z-index: ${20 + index};`}
                   >
                     <article
                       class="relative rounded-4xl border border-white/10 bg-slate-950 p-6 
-                       backdrop-blur transition h-[460px]
-                      hover:border-[#F08252]/50 mb-20"
+                       backdrop-blur transition
+                      hover:border-[#F08252]/50"
                     >
                       <div class="grid gap-6 sm:grid-cols-[auto_1fr]">
                         <div class="relative hidden sm:block">

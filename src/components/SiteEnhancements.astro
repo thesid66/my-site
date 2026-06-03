@@ -10,7 +10,9 @@
     ]
 
     const revealItems = [
-      ...new Set(revealSelectors.flatMap((selector) => [...document.querySelectorAll(selector)]))
+      ...new Set(
+        revealSelectors.flatMap((selector) => [...document.querySelectorAll<HTMLElement>(selector)])
+      )
     ]
 
     revealItems.forEach((item, index) => {
@@ -35,10 +37,10 @@
 
     revealItems.forEach((item) => revealObserver.observe(item))
 
-    const tiltCards = document.querySelectorAll('[data-tilt-card]')
+    const tiltCards = document.querySelectorAll<HTMLElement>('[data-tilt-card]')
 
     tiltCards.forEach((card) => {
-      card.addEventListener('mousemove', (event) => {
+      card.addEventListener('mousemove', (event: MouseEvent) => {
         const rect = card.getBoundingClientRect()
         const x = event.clientX - rect.left
         const y = event.clientY - rect.top
