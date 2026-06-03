@@ -108,6 +108,45 @@ const projects = [
     features: ["No database", "No plugins", "Fast loading", "Git deployment"],
   },
 ];
+
+const experiences = [
+  {
+    period: "Current",
+    role: "Independent Web Developer",
+    company: "Nepal / Remote",
+    description:
+      "Building lightweight websites, Laravel applications, WordPress solutions and custom business systems for practical real-world use.",
+    points: [
+      "Astro and Tailwind personal website development",
+      "Laravel and Angular-based business systems",
+      "WordPress to static website migration planning",
+    ],
+  },
+  {
+    period: "2023 - 2025",
+    role: "Developer Programmer",
+    company: "Resonate Business Ignition, Australia",
+    description:
+      "Worked on web development, technical planning, debugging, documentation and software improvements for business-focused digital projects.",
+    points: [
+      "Software specifications and testing documentation",
+      "Debugging, defect fixes and code improvements",
+      "End-user documentation and technical planning",
+    ],
+  },
+  {
+    period: "Past Experience",
+    role: "Web Developer",
+    company: "Himalayan IT / Freelance / Project Work",
+    description:
+      "Developed websites, custom web applications and database-driven systems using PHP, MySQL, WordPress and frontend technologies.",
+    points: [
+      "Built 100+ websites and web projects",
+      "Worked with PHP, MySQL, WordPress and AngularJS",
+      "Created custom systems for business and organisational workflows",
+    ],
+  },
+];
 ---
 
 <BaseLayout>
@@ -485,34 +524,95 @@ const projects = [
   </div>
 </section>
 
-    <section id="experience" class="bg-slate-900/50 px-6 py-24">
-      <div class="mx-auto max-w-6xl">
-        <SectionTitle
-          eyebrow="Experience"
-          title="More than 12 years in web development"
-          description="Experience across web development, WordPress, business systems, client websites and custom web applications."
-        />
+    <section id="experience" class="relative overflow-hidden bg-slate-900/50 px-6 py-24">
+  <div class="absolute right-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
 
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-          <div class="grid gap-6 md:grid-cols-3">
-            <div>
-              <p class="text-4xl font-bold text-[#F08252]">12+</p>
-              <p class="mt-2 text-slate-300">Years of experience</p>
-            </div>
+  <div class="mx-auto max-w-6xl">
+    <SectionTitle
+      eyebrow="Experience"
+      title="A practical journey across websites and systems"
+      description="More than 12 years of experience working across web development, WordPress, custom applications, business systems and digital solutions."
+    />
 
-            <div>
-              <p class="text-4xl font-bold text-[#F08252]">100+</p>
-              <p class="mt-2 text-slate-300">Websites and web projects</p>
-            </div>
+    <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+          Experience Snapshot
+        </p>
 
-            <div>
-              <p class="text-4xl font-bold text-[#F08252]">Full-stack</p>
-              <p class="mt-2 text-slate-300">Frontend, backend and CMS work</p>
-            </div>
+        <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
+          From simple websites to complete business systems.
+        </h3>
+
+        <p class="mt-5 leading-8 text-slate-300">
+          My work has grown from website development into full business workflow
+          systems, combining frontend interfaces, backend logic, databases,
+          admin panels and practical user experience.
+        </p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div class="rounded-2xl bg-slate-950/70 p-5">
+            <p class="text-4xl font-bold text-[#F08252]">12+</p>
+            <p class="mt-2 text-sm text-slate-400">Years of experience</p>
+          </div>
+
+          <div class="rounded-2xl bg-slate-950/70 p-5">
+            <p class="text-4xl font-bold text-[#F08252]">100+</p>
+            <p class="mt-2 text-sm text-slate-400">Websites and web projects</p>
+          </div>
+
+          <div class="rounded-2xl bg-slate-950/70 p-5">
+            <p class="text-4xl font-bold text-[#F08252]">Full</p>
+            <p class="mt-2 text-sm text-slate-400">Frontend, backend and CMS</p>
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="relative space-y-6">
+        <div class="absolute bottom-0 left-6 top-0 hidden w-px bg-white/10 md:block"></div>
+
+        {experiences.map((item) => (
+          <article class="relative rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-slate-950">
+            <div class="absolute -left-[1.95rem] top-8 hidden h-4 w-4 rounded-full border-4 border-slate-900 bg-[#F08252] md:block"></div>
+
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <span class="rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-medium text-orange-200">
+                {item.period}
+              </span>
+
+              <span class="text-sm text-slate-500">
+                Experience
+              </span>
+            </div>
+
+            <h3 class="mt-5 text-2xl font-bold text-white">
+              {item.role}
+            </h3>
+
+            <p class="mt-1 font-medium text-[#F08252]">
+              {item.company}
+            </p>
+
+            <p class="mt-4 leading-8 text-slate-300">
+              {item.description}
+            </p>
+
+            <div class="mt-5 grid gap-3">
+              {item.points.map((point) => (
+                <div class="flex gap-3 rounded-2xl bg-white/5 p-3 text-sm leading-6 text-slate-300">
+                  <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
+                    ✓
+                  </span>
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="contact" class="px-6 py-24">
       <div class="mx-auto max-w-4xl text-center">
