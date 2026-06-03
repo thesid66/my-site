@@ -14,64 +14,112 @@ const footerLinks = [
 const socialLinks = [
   {
     label: 'Email',
-    href: 'mailto:sid_dus@yahoo.com'
+    href: 'mailto:sid_dus@yahoo.com',
+    icon: 'email'
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/siddhartha-gautam-748935144/'
+    href: 'https://www.linkedin.com/in/siddhartha-gautam-748935144/',
+    icon: 'linkedin'
   },
   {
     label: 'WhatsApp',
-    href: 'https://wa.me/9779814999982'
+    href: 'https://wa.me/9779814999982',
+    icon: 'whatsapp'
   }
 ]
 ---
 
-<footer class="border-t border-white/10 bg-slate-950 px-6 py-10">
-  <div class="mx-auto max-w-6xl">
-    <div class="grid gap-8 md:grid-cols-[1fr_1.7fr_0.2fr] md:items-start">
-      <div>
-        <a href="#home" class="text-xl font-bold tracking-tight text-white">
-          Siddhartha<span class="text-[#F08252]">.</span>
-        </a>
+<footer class="border-t border-white/10 bg-slate-950 px-6 py-12">
+  <div class="mx-auto w-full max-w-[92rem]">
+    <div class="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+      <div class="flex flex-col h-full justify-between">
+        <div>
+          <a href="#home" class="text-xl font-bold tracking-tight text-white">
+            Siddhartha<span class="text-[#F08252]">.</span>
+          </a>
 
-        <p class="mt-4 max-w-sm leading-7 text-slate-400">
-          Web Developer, WordPress Specialist and System Analyst building practical websites and
-          business systems.
-        </p>
+          <p class="mt-4 max-w-xl leading-7 text-slate-400">
+            Web Developer, WordPress Specialist and System Analyst building practical websites,
+            modern web applications and business systems.
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          {
+            socialLinks.map((link) => (
+              <a
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                aria-label={link.label}
+                title={link.label}
+                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-0.5 hover:border-[#F08252] hover:bg-[#F08252]/10 hover:text-[#F08252]"
+              >
+                {link.icon === 'email' && (
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6h16v12H4z" />
+                    <path d="m4 7 8 6 8-6" />
+                  </svg>
+                )}
+
+                {link.icon === 'linkedin' && (
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6.94 8.86H3.75V20h3.19V8.86ZM5.35 4a1.85 1.85 0 1 0 0 3.7 1.85 1.85 0 0 0 0-3.7ZM20.25 13.61c0-3-1.6-4.99-4.2-4.99a3.63 3.63 0 0 0-3.26 1.79h-.05V8.86H9.69V20h3.18v-5.51c0-1.45.28-2.85 2.07-2.85 1.76 0 1.78 1.65 1.78 2.94V20h3.53v-6.39Z" />
+                  </svg>
+                )}
+
+                {link.icon === 'whatsapp' && (
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5.5 18.5 6.4 15A7.2 7.2 0 1 1 9 17.6l-3.5.9Z" />
+                    <path d="M9.5 8.8c.2 3.1 2 4.9 5.1 5.6" />
+                    <path d="M9.7 8.8h1.1l.6 1.7-.8.8c.5 1 1.2 1.7 2.2 2.2l.8-.8 1.7.6v1.1" />
+                  </svg>
+                )}
+              </a>
+            ))
+          }
+        </div>
       </div>
 
-      <nav class="flex flex-wrap gap-x-5 gap-y-3 md:justify-center">
-        {
-          footerLinks.map((link) => (
-            <a
-              href={link.href}
-              class="text-sm font-medium text-slate-400 transition hover:text-[#F08252]"
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <div class="md:justify-self-end">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">Explore</p>
 
-      <div class="flex flex-wrap gap-3 md:justify-end">
-        {
-          socialLinks.map((link) => (
-            <a
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-              class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-[#F08252] hover:text-[#F08252]"
-            >
-              {link.label}
-            </a>
-          ))
-        }
+        <nav class="mt-5 flex flex-col items-start gap-3 md:items-end">
+          {
+            footerLinks.map((link) => (
+              <a
+                href={link.href}
+                class="text-sm font-medium text-slate-400 transition hover:translate-x-1 hover:text-[#F08252] md:hover:-translate-x-1"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
       </div>
     </div>
 
     <div
-      class="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between"
+      class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between"
     >
       <p>
         © {currentYear} Siddhartha Gautam. All rights reserved.
