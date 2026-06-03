@@ -1,208 +1,212 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-import AnimatedRoles from "../components/AnimatedRoles.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/Header.astro'
+import SectionTitle from '../components/SectionTitle.astro'
+import AnimatedRoles from '../components/AnimatedRoles.astro'
+import Footer from '../components/Footer.astro'
 
 const aboutCards = [
   {
-    title: "Web Development Background",
-    text: "Over 12 years of experience building websites, web applications and custom digital systems for businesses and organisations.",
+    title: 'Web Development Background',
+    text: 'Over 12 years of experience building websites, web applications and custom digital systems for businesses and organisations.'
   },
   {
-    title: "WordPress & CMS Expertise",
-    text: "Strong experience with WordPress, Elementor, ACF, custom post types, shortcodes, performance optimisation and custom functionality.",
+    title: 'WordPress & CMS Expertise',
+    text: 'Strong experience with WordPress, Elementor, ACF, custom post types, shortcodes, performance optimisation and custom functionality.'
   },
   {
-    title: "Business System Thinking",
-    text: "Experience planning and building practical systems such as payroll, attendance, leave management, inventory, purchase and sales workflows.",
-  },
-];
+    title: 'Business System Thinking',
+    text: 'Experience planning and building practical systems such as payroll, attendance, leave management, inventory, purchase and sales workflows.'
+  }
+]
 
 const focusAreas = [
-  "Fast personal and business websites",
-  "WordPress to static website migration",
-  "Laravel and PHP web applications",
-  "Angular and frontend interfaces",
-  "Custom business workflows",
-  "Clean, maintainable code structure",
-];
+  'Fast personal and business websites',
+  'WordPress to static website migration',
+  'Laravel and PHP web applications',
+  'Angular and frontend interfaces',
+  'Custom business workflows',
+  'Clean, maintainable code structure'
+]
 
 const skillGroups = [
   {
-    category: "Frontend Development",
-    description: "Building clean, responsive and interactive interfaces.",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "Angular", "Tailwind CSS", "Astro"],
+    category: 'Frontend Development',
+    description: 'Building clean, responsive and interactive interfaces.',
+    items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Tailwind CSS', 'Astro']
   },
   {
-    category: "Backend Development",
-    description: "Developing APIs, application logic and database-connected systems.",
-    items: ["PHP", "Laravel", "MySQL", "REST APIs", "Authentication", "CRUD Systems"],
+    category: 'Backend Development',
+    description: 'Developing APIs, application logic and database-connected systems.',
+    items: ['PHP', 'Laravel', 'MySQL', 'REST APIs', 'Authentication', 'CRUD Systems']
   },
   {
-    category: "WordPress & CMS",
-    description: "Customising WordPress beyond standard themes and plugins.",
-    items: ["WordPress", "Elementor", "ACF", "Custom Post Types", "Shortcodes", "Custom Plugins"],
+    category: 'WordPress & CMS',
+    description: 'Customising WordPress beyond standard themes and plugins.',
+    items: ['WordPress', 'Elementor', 'ACF', 'Custom Post Types', 'Shortcodes', 'Custom Plugins']
   },
   {
-    category: "Business Systems",
-    description: "Planning and building practical systems for real business operations.",
-    items: ["Payroll", "Attendance", "Leave Management", "Inventory", "Purchase", "Sales"],
-  },
-];
+    category: 'Business Systems',
+    description: 'Planning and building practical systems for real business operations.',
+    items: ['Payroll', 'Attendance', 'Leave Management', 'Inventory', 'Purchase', 'Sales']
+  }
+]
 
 const technicalSkills = [
-  { label: "Web Design", level: 80 },
-  { label: "PHP / MySQL", level: 85 },
-  { label: "jQuery / JavaScript / JS Frameworks", level: 75 },
-  { label: "Graphics", level: 50 },
-  { label: "WordPress / Elementor", level: 95 },
-  { label: "PHP / MySQL", level: 90 },
-  { label: "Laravel", level: 85 },
-  { label: "Angular", level: 82 },
-  { label: "System Analysis", level: 88 },
-];
+  { label: 'Web Design', level: 80 },
+  { label: 'PHP / MySQL', level: 85 },
+  { label: 'jQuery / JavaScript / JS Frameworks', level: 75 },
+  { label: 'Graphics', level: 50 },
+  { label: 'WordPress / Elementor', level: 95 },
+  { label: 'PHP / MySQL', level: 90 },
+  { label: 'Laravel', level: 85 },
+  { label: 'Angular', level: 82 },
+  { label: 'System Analysis', level: 88 }
+]
 
 const professionalSkills = [
-  { label: "Communication", level: 85 },
-  { label: "Social Media Marketing", level: 95 },
-  { label: "Leadership", level: 90 },
-  { label: "Decision Making", level: 85 },
-  { label: "Problem Solving", level: 90 },
-  { label: "Project Planning", level: 88 },
-  { label: "Client Coordination", level: 87 },
-  { label: "Team Collaboration", level: 86 },
-  { label: "Time Management", level: 89 },
-];
-
+  { label: 'Communication', level: 85 },
+  { label: 'Social Media Marketing', level: 95 },
+  { label: 'Leadership', level: 90 },
+  { label: 'Decision Making', level: 85 },
+  { label: 'Problem Solving', level: 90 },
+  { label: 'Project Planning', level: 88 },
+  { label: 'Client Coordination', level: 87 },
+  { label: 'Team Collaboration', level: 86 },
+  { label: 'Time Management', level: 89 }
+]
 
 const projects = [
   {
-    title: "Kasthamandap Supermercado",
-    type: "Laravel eCommerce Website",
+    title: 'Kasthamandap Supermercado',
+    type: 'Laravel eCommerce Website',
+    image: '/images/projects/kasthamandap.webp',
     description:
-      "A modern eCommerce website with product management, checkout, order handling and Filament-powered admin controls.",
-    tags: ["Laravel", "Filament", "Livewire", "Tailwind", "MySQL"],
-    features: ["Product catalogue", "Checkout flow", "Admin panel", "Order management"],
+      'A modern eCommerce website with product management, checkout, order handling and Filament-powered admin controls.',
+    tags: ['Laravel', 'Filament', 'Livewire', 'Tailwind', 'MySQL'],
+    features: ['Product catalogue', 'Checkout flow', 'Admin panel', 'Order management']
+  },
+  // {
+  //   title: 'Payroll & Inventory Management System',
+  //   type: 'Business Management System',
+  //   image: '/images/projects/payroll-inventory.webp',
+  //   description:
+  //     'A custom Angular, PHP and MySQL-based system covering employee profiles, attendance, leave, salary, payroll, inventory, purchase and sales.',
+  //   tags: ['Angular', 'PHP', 'MySQL', 'REST API', 'Payroll'],
+  //   features: ['Attendance', 'Leave requests', 'Payroll', 'Inventory', 'Sales & purchase']
+  // },
+  {
+    title: 'NEPAFE Website',
+    type: 'WordPress / Elementor Website',
+    image: '/images/projects/nepafe.webp',
+    description:
+      'A WordPress website using Elementor, ACF, custom post types, useful links, filtering logic and content management features.',
+    tags: ['WordPress', 'Elementor', 'ACF', 'PHP', 'CPT'],
+    features: ['Custom post types', 'ACF filters', 'Useful links', 'Popup content']
   },
   {
-    title: "Payroll & Inventory Management System",
-    type: "Business Management System",
+    title: 'Calorie Calculator App',
+    type: 'Full-stack Health Tracking App',
+    image: '/images/projects/calorie-calculator.webp',
     description:
-      "A custom Angular, PHP and MySQL-based system covering employee profiles, attendance, leave, salary, payroll, inventory, purchase and sales.",
-    tags: ["Angular", "PHP", "MySQL", "REST API", "Payroll"],
-    features: ["Attendance", "Leave requests", "Payroll", "Inventory", "Sales & purchase"],
+      'A calorie tracking application designed to manage food records, custom food entries and nutrition-related calculations through a structured backend API.',
+    tags: ['Laravel', 'API', 'Database', 'Authentication', 'Food Tracking'],
+    features: ['Food database', 'Custom food entries', 'Calorie tracking', 'API-based structure']
   },
   {
-    title: "NEPAFE Website",
-    type: "WordPress / Elementor Website",
+    title: 'World Cup 2026 Predictor',
+    type: 'Interactive Prediction App',
+    image: '/images/projects/wcpredictor.webp',
     description:
-      "A WordPress website using Elementor, ACF, custom post types, useful links, filtering logic and content management features.",
-    tags: ["WordPress", "Elementor", "ACF", "PHP", "CPT"],
-    features: ["Custom post types", "ACF filters", "Useful links", "Popup content"],
+      'An interactive football prediction application for the 2026 World Cup, designed around match predictions, tournament logic and user-friendly result tracking.',
+    tags: ['Prediction App', 'Football', 'World Cup 2026', 'Frontend', 'Interactive UI'],
+    features: ['Match predictions', 'Tournament flow', 'Result tracking', 'Interactive experience']
   },
   {
-    title: "Calorie Calculator App",
-    type: "Full-stack Health Tracking App",
+    title: 'Personal Static Website',
+    type: 'Astro Portfolio Website',
+    image: '/images/projects/personal-website.webp',
     description:
-      "A calorie tracking application designed to manage food records, custom food entries and nutrition-related calculations through a structured backend API.",
-    tags: ["Laravel", "API", "Database", "Authentication", "Food Tracking"],
-    features: ["Food database", "Custom food entries", "Calorie tracking", "API-based structure"],
-  },
-  {
-    title: "World Cup 2026 Predictor",
-    type: "Interactive Prediction App",
-    description:
-      "An interactive football prediction application for the 2026 World Cup, designed around match predictions, tournament logic and user-friendly result tracking.",
-    tags: ["Prediction App", "Football", "World Cup 2026", "Frontend", "Interactive UI"],
-    features: ["Match predictions", "Tournament flow", "Result tracking", "Interactive experience"],
-  },
-  {
-    title: "Personal Static Website",
-    type: "Astro Portfolio Website",
-    description:
-      "A lightweight static personal website replacing WordPress, designed for speed, cleaner maintenance and Render deployment.",
-    tags: ["Astro", "Tailwind", "Static Site", "Render"],
-    features: ["No database", "No plugins", "Fast loading", "Git deployment"],
-  },
-];
+      'A lightweight static personal website replacing WordPress, designed for speed, cleaner maintenance and Render deployment.',
+    tags: ['Astro', 'Tailwind', 'Static Site', 'Render'],
+    features: ['No database', 'No plugins', 'Fast loading', 'Git deployment']
+  }
+]
 
 const experiences = [
   {
-    period: "Current",
-    role: "Independent Web Developer",
-    company: "Nepal / Remote",
+    period: 'Current',
+    role: 'Independent Web Developer',
+    company: 'Nepal / Remote',
     description:
-      "Building lightweight websites, Laravel applications, WordPress solutions and custom business systems for practical real-world use.",
+      'Building lightweight websites, Laravel applications, WordPress solutions and custom business systems for practical real-world use.',
     points: [
-      "Astro and Tailwind personal website development",
-      "Laravel and Angular-based business systems",
-      "WordPress to static website migration planning",
-    ],
+      'Astro and Tailwind personal website development',
+      'Laravel and Angular-based business systems',
+      'WordPress to static website migration planning'
+    ]
   },
   {
-    period: "2023 - 2025",
-    role: "Developer Programmer",
-    company: "Resonate Business Ignition, Australia",
+    period: '2023 - 2025',
+    role: 'Developer Programmer',
+    company: 'Resonate Business Ignition, Australia',
     description:
-      "Worked on web development, technical planning, debugging, documentation and software improvements for business-focused digital projects.",
+      'Worked on web development, technical planning, debugging, documentation and software improvements for business-focused digital projects.',
     points: [
-      "Software specifications and testing documentation",
-      "Debugging, defect fixes and code improvements",
-      "End-user documentation and technical planning",
-    ],
+      'Software specifications and testing documentation',
+      'Debugging, defect fixes and code improvements',
+      'End-user documentation and technical planning'
+    ]
   },
   {
-    period: "Past Experience",
-    role: "Web Developer",
-    company: "Himalayan IT / Freelance / Project Work",
+    period: 'Past Experience',
+    role: 'Web Developer',
+    company: 'Himalayan IT / Freelance / Project Work',
     description:
-      "Developed websites, custom web applications and database-driven systems using PHP, MySQL, WordPress and frontend technologies.",
+      'Developed websites, custom web applications and database-driven systems using PHP, MySQL, WordPress and frontend technologies.',
     points: [
-      "Built 100+ websites and web projects",
-      "Worked with PHP, MySQL, WordPress and AngularJS",
-      "Created custom systems for business and organisational workflows",
-    ],
-  },
-];
+      'Built 100+ websites and web projects',
+      'Worked with PHP, MySQL, WordPress and AngularJS',
+      'Created custom systems for business and organisational workflows'
+    ]
+  }
+]
 
 const contactMethods = [
   {
-    label: "Email",
-    value: "sid_dus@yahoo.com",
-    href: "mailto:sid_dus@yahoo.com",
-    note: "Best for project enquiries and detailed messages.",
+    label: 'Email',
+    value: 'sid_dus@yahoo.com',
+    href: 'mailto:sid_dus@yahoo.com',
+    note: 'Best for project enquiries and detailed messages.'
   },
   {
-    label: "WhatsApp / Phone",
-    value: "+977 9814999982",
-    href: "https://wa.me/9779814999982",
-    note: "Best for quick communication and follow-up.",
+    label: 'WhatsApp / Phone',
+    value: '+977 9814999982',
+    href: 'https://wa.me/9779814999982',
+    note: 'Best for quick communication and follow-up.'
   },
   {
-    label: "LinkedIn",
-    value: "Siddhartha Gautam",
-    href: "https://www.linkedin.com/in/siddhartha-gautam-748935144/",
-    note: "Connect with me professionally.",
+    label: 'LinkedIn',
+    value: 'Siddhartha Gautam',
+    href: 'https://www.linkedin.com/in/siddhartha-gautam-748935144/',
+    note: 'Connect with me professionally.'
   },
   {
-    label: "Website",
-    value: "gautamsiddhartha.com.np",
-    href: "https://gautamsiddhartha.com.np",
-    note: "My personal portfolio and online profile.",
-  },
-];
+    label: 'Website',
+    value: 'gautamsiddhartha.com.np',
+    href: 'https://gautamsiddhartha.com.np',
+    note: 'My personal portfolio and online profile.'
+  }
+]
 
 const serviceEnquiries = [
-  "Personal or business website",
-  "WordPress customisation",
-  "Laravel web application",
-  "Angular frontend interface",
-  "Business management system",
-  "Website migration or rebuild",
-];
-
+  'Personal or business website',
+  'WordPress customisation',
+  'Laravel web application',
+  'Angular frontend interface',
+  'Business management system',
+  'Website migration or rebuild'
+]
 ---
 
 <BaseLayout
@@ -214,22 +218,40 @@ const serviceEnquiries = [
 
   <main class="min-h-screen">
     <section id="home" class="relative flex min-h-screen items-center overflow-hidden px-6 py-32">
-      <div class="absolute inset-0 -z-20 bg-[linear-gradient(135deg,_#0f172a_0%,_#020617_55%,_#111827_100%)]"></div>
+      <div
+        class="absolute inset-0 -z-20 bg-[linear-gradient(135deg,_#0f172a_0%,_#020617_55%,_#111827_100%)]"
+      >
+      </div>
 
-      <div class="pulse-soft absolute left-[-8rem] top-24 -z-10 h-80 w-80 rounded-full bg-[#F08252]/20 blur-3xl"></div>
-      <div class="pulse-soft absolute bottom-10 right-[-10rem] -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"></div>
+      <div
+        class="pulse-soft absolute left-[-8rem] top-24 -z-10 h-80 w-80 rounded-full bg-[#F08252]/20 blur-3xl"
+      >
+      </div>
+      <div
+        class="pulse-soft absolute bottom-10 right-[-10rem] -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"
+      >
+      </div>
 
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(240,130,82,0.16),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_28%)]"></div>
+      <div
+        class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(240,130,82,0.16),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_28%)]"
+      >
+      </div>
 
-      <div class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+      <div
+        class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center"
+      >
         <div>
-          <p class="mb-5 inline-flex rounded-full border border-orange-300/20 bg-orange-300/10 px-4 py-2 text-sm font-medium text-orange-200">
+          <p
+            class="mb-5 inline-flex rounded-full border border-orange-300/20 bg-orange-300/10 px-4 py-2 text-sm font-medium text-orange-200"
+          >
             Available for website, WordPress and custom web system projects
           </p>
 
           <h1 class="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
             Hi, I’m
-            <span class="block bg-gradient-to-r from-[#F08252] to-orange-300 bg-clip-text text-transparent">
+            <span
+              class="block bg-linear-to-r from-[#F08252] to-orange-300 bg-clip-text text-transparent"
+            >
               Siddhartha Gautam
             </span>
           </h1>
@@ -237,16 +259,18 @@ const serviceEnquiries = [
           <AnimatedRoles />
 
           <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            I build fast, practical and business-focused websites and web applications
-            using WordPress, Laravel, Angular, PHP, MySQL and modern frontend tools.
+            I build fast, practical and business-focused websites and web applications using
+            WordPress, Laravel, Angular, PHP, MySQL and modern frontend tools.
           </p>
 
           <div class="mt-8 flex flex-wrap gap-3">
-            {["WordPress", "Laravel", "Angular", "PHP", "MySQL", "Tailwind CSS"].map((item) => (
-              <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-                {item}
-              </span>
-            ))}
+            {
+              ['WordPress', 'Laravel', 'Angular', 'PHP', 'MySQL', 'Tailwind CSS'].map((item) => (
+                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
+                  {item}
+                </span>
+              ))
+            }
           </div>
 
           <div class="mt-10 flex flex-wrap gap-4">
@@ -284,17 +308,21 @@ const serviceEnquiries = [
         </div>
 
         <div class="relative">
-          <div class="float-soft absolute -right-4 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 shadow-2xl backdrop-blur md:block">
+          <div
+            class="float-soft absolute -right-4 -top-6 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 shadow-2xl backdrop-blur md:block"
+          >
             <p class="text-sm font-medium text-slate-300">Current stack</p>
             <p class="mt-1 text-lg font-semibold text-white">Astro + Tailwind</p>
           </div>
 
-          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
-            <div class="overflow-hidden rounded-[1.5rem] bg-slate-900">
-              <div class="bg-gradient-to-br from-[#F08252] via-orange-500 to-slate-800 p-1">
+          <div class="rounded-4xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+            <div class="overflow-hidden rounded-3xl bg-slate-900">
+              <div class="bg-linear-to-br from-[#F08252] via-orange-500 to-slate-800 p-1">
                 <div class="rounded-[1.35rem] bg-slate-950 p-6">
                   <div class="flex items-center gap-4">
-                    <div class="flex h-20 w-20 items-center justify-center rounded-3xl bg-[#F08252] text-3xl font-bold text-white shadow-lg shadow-orange-500/30">
+                    <div
+                      class="flex h-20 w-20 items-center justify-center rounded-3xl bg-[#F08252] text-3xl font-bold text-white shadow-lg shadow-orange-500/30"
+                    >
                       SG
                     </div>
 
@@ -336,17 +364,21 @@ const serviceEnquiries = [
 
               <div class="border-t border-white/10 bg-white/[0.03] p-6">
                 <div class="flex flex-wrap gap-2">
-                  {["Fast", "SEO-ready", "Responsive", "Render deploy"].map((item) => (
-                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
-                      {item}
-                    </span>
-                  ))}
+                  {
+                    ['Fast', 'SEO-ready', 'Responsive', 'Render deploy'].map((item) => (
+                      <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                        {item}
+                      </span>
+                    ))
+                  }
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="float-soft absolute -bottom-6 -left-4 hidden rounded-2xl border border-white/10 bg-slate-900 px-5 py-4 shadow-2xl md:block">
+          <div
+            class="float-soft absolute -bottom-6 -left-4 hidden rounded-2xl border border-white/10 bg-slate-900 px-5 py-4 shadow-2xl md:block"
+          >
             <p class="text-sm text-slate-400">Website goal</p>
             <p class="mt-1 font-semibold text-white">Fast personal brand site</p>
           </div>
@@ -355,7 +387,10 @@ const serviceEnquiries = [
     </section>
 
     <section id="about" class="relative overflow-hidden px-6 py-24">
-      <div class="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
+      <div
+        class="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
+      >
+      </div>
 
       <div class="mx-auto max-w-6xl">
         <SectionTitle
@@ -376,22 +411,19 @@ const serviceEnquiries = [
 
             <div class="mt-6 space-y-5 text-lg leading-8 text-slate-300">
               <p>
-                I am a web developer and system analyst with experience across
-                WordPress, Elementor, PHP, Laravel, Angular, MySQL and modern
-                frontend development.
+                I am a web developer and system analyst with experience across WordPress, Elementor,
+                PHP, Laravel, Angular, MySQL and modern frontend development.
               </p>
 
               <p>
-                My work focuses on solving real problems through clean websites,
-                practical business systems and maintainable digital solutions.
-                I enjoy working on projects where design, functionality and business
-                needs come together.
+                My work focuses on solving real problems through clean websites, practical business
+                systems and maintainable digital solutions. I enjoy working on projects where
+                design, functionality and business needs come together.
               </p>
 
               <p>
-                This website is being rebuilt as a lightweight static site to replace
-                WordPress, improve speed, reduce maintenance and create a cleaner
-                personal brand presence.
+                This website is being rebuilt as a lightweight static site to replace WordPress,
+                improve speed, reduce maintenance and create a cleaner personal brand presence.
               </p>
             </div>
 
@@ -410,34 +442,32 @@ const serviceEnquiries = [
 
           <div class="space-y-6">
             <div class="grid gap-6">
-              {aboutCards.map((card) => (
-                <article class="group rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
-                  <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F08252]/15 text-lg font-bold text-[#F08252]">
-                    ✓
-                  </div>
+              {
+                aboutCards.map((card) => (
+                  <article class="group rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
+                    <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F08252]/15 text-lg font-bold text-[#F08252]">
+                      ✓
+                    </div>
 
-                  <h3 class="text-xl font-semibold text-white">
-                    {card.title}
-                  </h3>
+                    <h3 class="text-xl font-semibold text-white">{card.title}</h3>
 
-                  <p class="mt-3 leading-7 text-slate-300">
-                    {card.text}
-                  </p>
-                </article>
-              ))}
+                    <p class="mt-3 leading-7 text-slate-300">{card.text}</p>
+                  </article>
+                ))
+              }
             </div>
 
             <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-6">
-              <h3 class="text-xl font-semibold text-white">
-                Current focus areas
-              </h3>
+              <h3 class="text-xl font-semibold text-white">Current focus areas</h3>
 
               <div class="mt-5 flex flex-wrap gap-3">
-                {focusAreas.map((item) => (
-                  <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-                    {item}
-                  </span>
-                ))}
+                {
+                  focusAreas.map((item) => (
+                    <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
+                      {item}
+                    </span>
+                  ))
+                }
               </div>
             </div>
           </div>
@@ -446,7 +476,10 @@ const serviceEnquiries = [
     </section>
 
     <section id="skills" class="relative overflow-hidden bg-slate-900/50 px-6 py-24">
-      <div class="absolute right-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
+      <div
+        class="absolute right-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
+      >
+      </div>
 
       <div class="mx-auto max-w-6xl">
         <SectionTitle
@@ -456,371 +489,378 @@ const serviceEnquiries = [
         />
 
         <div class="grid gap-6 lg:grid-cols-2">
-          {skillGroups.map((group) => (
-            <article class="group rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="text-2xl font-semibold text-white">
-                    {group.category}
-                  </h3>
+          {
+            skillGroups.map((group) => (
+              <article class="group rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="text-2xl font-semibold text-white">{group.category}</h3>
 
-                  <p class="mt-3 leading-7 text-slate-300">
-                    {group.description}
-                  </p>
+                    <p class="mt-3 leading-7 text-slate-300">{group.description}</p>
+                  </div>
+
+                  <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#F08252]/15 text-xl font-bold text-[#F08252]">
+                    #
+                  </div>
                 </div>
 
-                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#F08252]/15 text-xl font-bold text-[#F08252]">
-                  #
+                <div class="mt-6 flex flex-wrap gap-3">
+                  {group.items.map((item) => (
+                    <span class="rounded-full border border-white/10 bg-slate-950/60 px-4 py-2 text-sm text-slate-300 transition group-hover:border-[#F08252]/30">
+                      {item}
+                    </span>
+                  ))}
                 </div>
-              </div>
-
-              <div class="mt-6 flex flex-wrap gap-3">
-                {group.items.map((item) => (
-                  <span class="rounded-full border border-white/10 bg-slate-950/60 px-4 py-2 text-sm text-slate-300 transition group-hover:border-[#F08252]/30">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+              </article>
+            ))
+          }
         </div>
 
         <div class="mt-8 rounded-[2rem] border border-white/10 bg-slate-950/70 p-8">
-  <div class="mb-10 text-center">
-    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
-      My Expertise
-    </p>
+          <div class="mb-10 text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+              My Expertise
+            </p>
 
-    <h3 class="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-      Technical & Professional Skills
-    </h3>
+            <h3 class="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Technical & Professional Skills
+            </h3>
 
-    <p class="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
-      A practical combination of development skills, business understanding and communication-focused work experience.
-    </p>
-  </div>
+            <p class="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
+              A practical combination of development skills, business understanding and
+              communication-focused work experience.
+            </p>
+          </div>
 
-  <div class="grid gap-10 lg:grid-cols-2">
-    <div>
-      <h4 class="mb-6 text-2xl font-bold text-white">
-        Technical Skills
-      </h4>
+          <div class="grid gap-10 lg:grid-cols-2">
+            <div>
+              <h4 class="mb-6 text-2xl font-bold text-white">Technical Skills</h4>
 
-      <div class="space-y-6">
-        {technicalSkills.map((skill) => (
-          <div>
-            <div class="mb-2 flex items-center justify-between gap-4">
-              <p class="font-medium tracking-wide text-slate-200">
-                {skill.label}
-              </p>
+              <div class="space-y-6">
+                {
+                  technicalSkills.map((skill) => (
+                    <div>
+                      <div class="mb-2 flex items-center justify-between gap-4">
+                        <p class="font-medium tracking-wide text-slate-200">{skill.label}</p>
 
-              <p class="text-sm font-semibold text-[#F08252]">
-                {skill.level}%
-              </p>
+                        <p class="text-sm font-semibold text-[#F08252]">{skill.level}%</p>
+                      </div>
+
+                      <div class="h-4 overflow-hidden rounded-full bg-white/10">
+                        <div
+                          class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
+                          style={`width: ${skill.level}%`}
+                        />
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
 
-            <div class="h-4 overflow-hidden rounded-full bg-white/10">
-              <div
-                class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
-                style={`width: ${skill.level}%`}
-              ></div>
+            <div>
+              <h4 class="mb-6 text-2xl font-bold text-white">Professional Skills</h4>
+
+              <div class="space-y-6">
+                {
+                  professionalSkills.map((skill) => (
+                    <div>
+                      <div class="mb-2 flex items-center justify-between gap-4">
+                        <p class="font-medium tracking-wide text-slate-200">{skill.label}</p>
+
+                        <p class="text-sm font-semibold text-[#F08252]">{skill.level}%</p>
+                      </div>
+
+                      <div class="h-4 overflow-hidden rounded-full bg-white/10">
+                        <div
+                          class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
+                          style={`width: ${skill.level}%`}
+                        />
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    <div>
-      <h4 class="mb-6 text-2xl font-bold text-white">
-        Professional Skills
-      </h4>
-
-      <div class="space-y-6">
-        {professionalSkills.map((skill) => (
-          <div>
-            <div class="mb-2 flex items-center justify-between gap-4">
-              <p class="font-medium tracking-wide text-slate-200">
-                {skill.label}
-              </p>
-
-              <p class="text-sm font-semibold text-[#F08252]">
-                {skill.level}%
-              </p>
-            </div>
-
-            <div class="h-4 overflow-hidden rounded-full bg-white/10">
-              <div
-                class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
-                style={`width: ${skill.level}%`}
-              ></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
       </div>
     </section>
 
     <section id="projects" class="relative overflow-hidden px-6 py-24">
-  <div class="absolute left-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
+      <div
+        class="absolute left-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
+      >
+      </div>
 
-  <div class="mx-auto max-w-6xl">
-    <SectionTitle
-      eyebrow="Projects"
-      title="Selected work and systems"
-      description="A collection of websites, web applications and business systems built with practical functionality in mind."
-    />
+      <div class="mx-auto max-w-6xl">
+        <SectionTitle
+          eyebrow="Projects"
+          title="Selected work and systems"
+          description="A collection of websites, web applications and business systems built with practical functionality in mind."
+        />
 
-    <div class="grid gap-6 lg:grid-cols-2">
-      {projects.map((project, index) => (
-        <article class={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07] ${index === 0 ? "lg:col-span-2" : ""}`}>
-          <div class="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-[#F08252]/10 transition group-hover:bg-[#F08252]/20"></div>
-
-          <div class="relative">
-            <div class="mb-5 flex flex-wrap items-center justify-between gap-4">
-              <span class="rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-medium text-orange-200">
-                {project.type}
-              </span>
-
-              <span class="text-sm font-semibold text-slate-500">
-                0{index + 1}
-              </span>
-            </div>
-
-            <h3 class="text-2xl font-bold tracking-tight text-white md:text-3xl">
-              {project.title}
-            </h3>
-
-            <p class="mt-4 leading-8 text-slate-300">
-              {project.description}
-            </p>
-
-            <div class="mt-6 flex flex-wrap gap-3">
-              {project.tags.map((tag) => (
-                <span class="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1.5 text-xs font-medium text-slate-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div class="mt-6 grid gap-3 sm:grid-cols-2">
-              {project.features.map((feature) => (
-                <div class="flex items-center gap-3 rounded-2xl bg-slate-950/50 p-3 text-sm text-slate-300">
-                  <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
-                    ✓
-                  </span>
-                  {feature}
+        <div class="grid gap-6 lg:grid-cols-2">
+          {
+            projects.map((project, index) => (
+              <article
+                class={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07] ${index === 0 ? 'lg:col-span-2' : ''}`}
+              >
+                <div class="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-[#F08252]/10 transition group-hover:bg-[#F08252]/20" />
+                <div class="mb-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    loading="lazy"
+                    class="aspect-[16/9] w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+                <div class="relative">
+                  <div class="mb-5 flex flex-wrap items-center justify-between gap-4">
+                    <span class="rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-medium text-orange-200">
+                      {project.type}
+                    </span>
+
+                    <span class="text-sm font-semibold text-slate-500">0{index + 1}</span>
+                  </div>
+
+                  <h3 class="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                    {project.title}
+                  </h3>
+
+                  <p class="mt-4 leading-8 text-slate-300">{project.description}</p>
+
+                  <div class="mt-6 flex flex-wrap gap-3">
+                    {project.tags.map((tag) => (
+                      <span class="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1.5 text-xs font-medium text-slate-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                    {project.features.map((feature) => (
+                      <div class="flex items-center gap-3 rounded-2xl bg-slate-950/50 p-3 text-sm text-slate-300">
+                        <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
+                          ✓
+                        </span>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <section id="experience" class="relative overflow-hidden bg-slate-900/50 px-6 py-24">
-  <div class="absolute right-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
-
-  <div class="mx-auto max-w-6xl">
-    <SectionTitle
-      eyebrow="Experience"
-      title="A practical journey across websites and systems"
-      description="More than 12 years of experience working across web development, WordPress, custom applications, business systems and digital solutions."
-    />
-
-    <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
-          Experience Snapshot
-        </p>
-
-        <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
-          From simple websites to complete business systems.
-        </h3>
-
-        <p class="mt-5 leading-8 text-slate-300">
-          My work has grown from website development into full business workflow
-          systems, combining frontend interfaces, backend logic, databases,
-          admin panels and practical user experience.
-        </p>
-
-        <div class="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-          <div class="rounded-2xl bg-slate-950/70 p-5">
-            <p class="text-4xl font-bold text-[#F08252]">12+</p>
-            <p class="mt-2 text-sm text-slate-400">Years of experience</p>
-          </div>
-
-          <div class="rounded-2xl bg-slate-950/70 p-5">
-            <p class="text-4xl font-bold text-[#F08252]">100+</p>
-            <p class="mt-2 text-sm text-slate-400">Websites and web projects</p>
-          </div>
-
-          <div class="rounded-2xl bg-slate-950/70 p-5">
-            <p class="text-4xl font-bold text-[#F08252]">Full</p>
-            <p class="mt-2 text-sm text-slate-400">Frontend, backend and CMS</p>
-          </div>
-        </div>
+      <div
+        class="absolute right-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
+      >
       </div>
 
-      <div class="relative space-y-6">
-        <div class="absolute bottom-0 left-6 top-0 hidden w-px bg-white/10 md:block"></div>
+      <div class="mx-auto max-w-6xl">
+        <SectionTitle
+          eyebrow="Experience"
+          title="A practical journey across websites and systems"
+          description="More than 12 years of experience working across web development, WordPress, custom applications, business systems and digital solutions."
+        />
 
-        {experiences.map((item) => (
-          <article class="relative rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-slate-950">
-            <div class="absolute -left-[1.95rem] top-8 hidden h-4 w-4 rounded-full border-4 border-slate-900 bg-[#F08252] md:block"></div>
+        <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+              Experience Snapshot
+            </p>
 
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <span class="rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-medium text-orange-200">
-                {item.period}
-              </span>
-
-              <span class="text-sm text-slate-500">
-                Experience
-              </span>
-            </div>
-
-            <h3 class="mt-5 text-2xl font-bold text-white">
-              {item.role}
+            <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
+              From simple websites to complete business systems.
             </h3>
 
-            <p class="mt-1 font-medium text-[#F08252]">
-              {item.company}
+            <p class="mt-5 leading-8 text-slate-300">
+              My work has grown from website development into full business workflow systems,
+              combining frontend interfaces, backend logic, databases, admin panels and practical
+              user experience.
             </p>
 
-            <p class="mt-4 leading-8 text-slate-300">
-              {item.description}
-            </p>
-
-            <div class="mt-5 grid gap-3">
-              {item.points.map((point) => (
-                <div class="flex gap-3 rounded-2xl bg-white/5 p-3 text-sm leading-6 text-slate-300">
-                  <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
-                    ✓
-                  </span>
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="contact" class="relative overflow-hidden px-6 py-24">
-  <div class="absolute left-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
-  <div class="absolute bottom-0 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"></div>
-
-  <div class="mx-auto max-w-6xl">
-    <SectionTitle
-      eyebrow="Contact"
-      title="Let’s build something practical"
-      description="Contact me for websites, WordPress customisation, Laravel applications, business systems or technical support."
-    />
-
-    <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
-          Start a Conversation
-        </p>
-
-        <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
-          Have a project, idea or system requirement?
-        </h3>
-
-        <p class="mt-5 leading-8 text-slate-300">
-          I can help with lightweight websites, WordPress improvements, Laravel
-          applications, frontend interfaces and business-focused digital systems.
-          Share what you are trying to build, improve or migrate.
-        </p>
-
-        <div class="mt-8 grid gap-4 sm:grid-cols-2">
-          {serviceEnquiries.map((item) => (
-            <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-300">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
-                ✓
-              </span>
-              {item}
-            </div>
-          ))}
-        </div>
-
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a
-            href="mailto:sid_dus@yahoo.com"
-            class="rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
-          >
-            Send Email
-          </a>
-
-          <a
-            href="https://wa.me/9779814999982"
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#F08252] hover:text-[#F08252]"
-          >
-            Message on WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="grid gap-4">
-        {contactMethods.map((method) => (
-          <a
-            href={method.href}
-            target={method.href.startsWith("http") ? "_blank" : undefined}
-            rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-            class="group rounded-3xl border border-white/10 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-slate-900"
-          >
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[#F08252]">
-                  {method.label}
-                </p>
-
-                <h3 class="mt-3 break-words text-xl font-semibold text-white">
-                  {method.value}
-                </h3>
-
-                <p class="mt-3 leading-7 text-slate-400">
-                  {method.note}
-                </p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+              <div class="rounded-2xl bg-slate-950/70 p-5">
+                <p class="text-4xl font-bold text-[#F08252]">12+</p>
+                <p class="mt-2 text-sm text-slate-400">Years of experience</p>
               </div>
 
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-lg text-slate-300 transition group-hover:bg-[#F08252] group-hover:text-white">
-                ↗
-              </span>
+              <div class="rounded-2xl bg-slate-950/70 p-5">
+                <p class="text-4xl font-bold text-[#F08252]">100+</p>
+                <p class="mt-2 text-sm text-slate-400">Websites and web projects</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/70 p-5">
+                <p class="text-4xl font-bold text-[#F08252]">Full</p>
+                <p class="mt-2 text-sm text-slate-400">Frontend, backend and CMS</p>
+              </div>
             </div>
-          </a>
-        ))}
+          </div>
+
+          <div class="relative space-y-6">
+            <div class="absolute bottom-0 left-6 top-0 hidden w-px bg-white/10 md:block"></div>
+
+            {
+              experiences.map((item) => (
+                <article class="relative rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-slate-950">
+                  <div class="absolute -left-[1.95rem] top-8 hidden h-4 w-4 rounded-full border-4 border-slate-900 bg-[#F08252] md:block" />
+
+                  <div class="flex flex-wrap items-center justify-between gap-4">
+                    <span class="rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-medium text-orange-200">
+                      {item.period}
+                    </span>
+
+                    <span class="text-sm text-slate-500">Experience</span>
+                  </div>
+
+                  <h3 class="mt-5 text-2xl font-bold text-white">{item.role}</h3>
+
+                  <p class="mt-1 font-medium text-[#F08252]">{item.company}</p>
+
+                  <p class="mt-4 leading-8 text-slate-300">{item.description}</p>
+
+                  <div class="mt-5 grid gap-3">
+                    {item.points.map((point) => (
+                      <div class="flex gap-3 rounded-2xl bg-white/5 p-3 text-sm leading-6 text-slate-300">
+                        <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
+                          ✓
+                        </span>
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-r from-[#F08252]/20 to-orange-500/10 p-8 text-center">
-      <h3 class="text-2xl font-bold text-white md:text-3xl">
-        Ready to discuss your next digital project?
-      </h3>
-
-      <p class="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
-        Whether it is a new website, a WordPress improvement, a custom web
-        application or a business system, I can help you plan and build it with
-        a practical approach.
-      </p>
-
-      <a
-        href="mailto:sid_dus@yahoo.com"
-        class="mt-6 inline-flex rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-orange-500"
+    <section id="contact" class="relative overflow-hidden px-6 py-24">
+      <div
+        class="absolute left-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
       >
-        Start a Project Enquiry
-      </a>
-    </div>
-  </div>
-</section>
+      </div>
+      <div
+        class="absolute bottom-0 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"
+      >
+      </div>
+
+      <div class="mx-auto max-w-6xl">
+        <SectionTitle
+          eyebrow="Contact"
+          title="Let’s build something practical"
+          description="Contact me for websites, WordPress customisation, Laravel applications, business systems or technical support."
+        />
+
+        <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+              Start a Conversation
+            </p>
+
+            <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
+              Have a project, idea or system requirement?
+            </h3>
+
+            <p class="mt-5 leading-8 text-slate-300">
+              I can help with lightweight websites, WordPress improvements, Laravel applications,
+              frontend interfaces and business-focused digital systems. Share what you are trying to
+              build, improve or migrate.
+            </p>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              {
+                serviceEnquiries.map((item) => (
+                  <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-300">
+                    <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
+                      ✓
+                    </span>
+                    {item}
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="mailto:sid_dus@yahoo.com"
+                class="rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+              >
+                Send Email
+              </a>
+
+              <a
+                href="https://wa.me/9779814999982"
+                target="_blank"
+                rel="noreferrer"
+                class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#F08252] hover:text-[#F08252]"
+              >
+                Message on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-4">
+            {
+              contactMethods.map((method) => (
+                <a
+                  href={method.href}
+                  target={method.href.startsWith('http') ? '_blank' : undefined}
+                  rel={method.href.startsWith('http') ? 'noreferrer' : undefined}
+                  class="group rounded-3xl border border-white/10 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-slate-900"
+                >
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[#F08252]">
+                        {method.label}
+                      </p>
+
+                      <h3 class="mt-3 break-words text-xl font-semibold text-white">
+                        {method.value}
+                      </h3>
+
+                      <p class="mt-3 leading-7 text-slate-400">{method.note}</p>
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-lg text-slate-300 transition group-hover:bg-[#F08252] group-hover:text-white">
+                      ↗
+                    </span>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div
+          class="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-r from-[#F08252]/20 to-orange-500/10 p-8 text-center"
+        >
+          <h3 class="text-2xl font-bold text-white md:text-3xl">
+            Ready to discuss your next digital project?
+          </h3>
+
+          <p class="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
+            Whether it is a new website, a WordPress improvement, a custom web application or a
+            business system, I can help you plan and build it with a practical approach.
+          </p>
+
+          <a
+            href="mailto:sid_dus@yahoo.com"
+            class="mt-6 inline-flex rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-orange-500"
+          >
+            Start a Project Enquiry
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

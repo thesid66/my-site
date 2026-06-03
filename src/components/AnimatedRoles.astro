@@ -1,18 +1,22 @@
 ---
-const roles = ["Designer.", "Developer.", "System Analyst."];
+const roles = ['Designer.', 'Developer.', 'System Analyst.']
 ---
 
 <div class="mt-6" aria-label="Designer. Developer. System Analyst.">
-  <div class="relative h-12 w-full max-w-[22rem] overflow-hidden rounded-xl border border-white/10 bg-slate-950/80 shadow-lg shadow-black/20">
-    {roles.map((role, index) => (
-      <span
-        class="animated-role absolute inset-0 flex items-center px-5 text-sm font-bold uppercase tracking-[0.35em] text-white"
-        style={`--delay: ${index * 3}s`}
-      >
-        <span class="animated-role-highlight"></span>
-        <span class="relative z-10">{role}</span>
-      </span>
-    ))}
+  <div
+    class="relative h-12 w-full max-w-[22rem] overflow-hidden rounded-xl border border-white/10 bg-slate-950/80 shadow-lg shadow-black/20"
+  >
+    {
+      roles.map((role, index) => (
+        <span
+          class="animated-role absolute inset-0 flex items-center px-5 text-sm font-bold uppercase tracking-[0.35em] text-white"
+          style={`--delay: ${index * 3}s`}
+        >
+          <span class="animated-role-highlight" />
+          <span class="relative z-10">{role}</span>
+        </span>
+      ))
+    }
   </div>
 </div>
 
