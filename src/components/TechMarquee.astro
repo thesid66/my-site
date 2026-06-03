@@ -1,0 +1,108 @@
+---
+const technologies = [
+  'WordPress',
+  'Elementor',
+  'ACF',
+  'PHP',
+  'Laravel',
+  'MySQL',
+  'Astro',
+  'Tailwind CSS',
+  'Angular',
+  'React',
+  'TypeScript',
+  'REST APIs',
+  'Filament',
+  'Livewire',
+  'Git',
+  'Render'
+]
+
+const repeatedTechnologies = [...technologies, ...technologies]
+---
+
+<div class="tech-marquee mt-8 w-full max-w-2xl overflow-hidden" aria-label="Technology stack">
+  <div class="mb-3 flex items-center gap-3">
+    <span class="h-px w-10 bg-[#F08252]/60"></span>
+
+    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Tools I work with</p>
+  </div>
+
+  <div class="tech-marquee-window">
+    <div class="tech-marquee-track">
+      {
+        repeatedTechnologies.map((technology, index) => (
+          <span
+            class="tech-marquee-item"
+            aria-hidden={index >= technologies.length ? 'true' : undefined}
+          >
+            {technology}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .tech-marquee-window {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-block: 0.35rem;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .tech-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 0.75rem;
+    animation: tech-marquee-scroll 26s linear infinite;
+  }
+
+  .tech-marquee:hover .tech-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .tech-marquee-item {
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.055);
+    padding: 0.65rem 1rem;
+    color: rgb(203 213 225);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .tech-marquee-item:nth-child(3n) {
+    border-color: rgba(240, 130, 82, 0.28);
+    background: rgba(240, 130, 82, 0.1);
+    color: rgb(254 215 170);
+  }
+
+  @keyframes tech-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+    }
+
+    .tech-marquee-window {
+      mask-image: none;
+    }
+  }
+</style>

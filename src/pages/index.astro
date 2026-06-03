@@ -5,6 +5,7 @@ import SectionTitle from '../components/SectionTitle.astro'
 import AnimatedRoles from '../components/AnimatedRoles.astro'
 import Footer from '../components/Footer.astro'
 import SiteEnhancements from '../components/SiteEnhancements.astro'
+import TechMarquee from '../components/TechMarquee.astro'
 
 const aboutCards = [
   {
@@ -305,9 +306,9 @@ const processSteps = [
       </div>
 
       <div
-        class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center"
+        class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center"
       >
-        <div>
+        <div class="min-w-0">
           <p
             class="mb-5 inline-flex rounded-full border border-orange-300/20 bg-orange-300/10 px-4 py-2 text-sm font-medium text-orange-200"
           >
@@ -330,15 +331,7 @@ const processSteps = [
             WordPress, React, Laravel, Angular, PHP, MySQL and modern frontend tools.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
-            {
-              ['WordPress', 'Laravel', 'Angular', 'PHP', 'MySQL', 'Tailwind CSS'].map((item) => (
-                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-                  {item}
-                </span>
-              ))
-            }
-          </div>
+          <TechMarquee />
 
           <div class="mt-10 flex flex-wrap gap-4">
             <a
@@ -374,7 +367,7 @@ const processSteps = [
           </div>
         </div>
 
-        <div class="relative">
+        <div class="relative min-w-0">
           <div
             class="float-soft absolute -right-4 -top-6 z-30 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 shadow-2xl backdrop-blur md:block"
           >
