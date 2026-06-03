@@ -1,0 +1,77 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const socialLinks = [
+  {
+    label: "Email",
+    href: "mailto:sid_dus@yahoo.com",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/siddhartha-gautam-748935144/",
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/9779814999982",
+  },
+];
+---
+
+<footer class="border-t border-white/10 bg-slate-950 px-6 py-10">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid gap-8 md:grid-cols-[1fr_1.2fr_1fr] md:items-start">
+      <div>
+        <a href="#home" class="text-xl font-bold tracking-tight text-white">
+          Siddhartha<span class="text-[#F08252]">.</span>
+        </a>
+
+        <p class="mt-4 max-w-sm leading-7 text-slate-400">
+          Web Developer, WordPress Specialist and System Analyst building practical websites and business systems.
+        </p>
+      </div>
+
+      <nav class="flex flex-wrap gap-x-5 gap-y-3 md:justify-center">
+        {footerLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-slate-400 transition hover:text-[#F08252]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex flex-wrap gap-3 md:justify-end">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith("http") ? "_blank" : undefined}
+            rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+            class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-[#F08252] hover:text-[#F08252]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+      <p>
+        © {currentYear} Siddhartha Gautam. All rights reserved.
+      </p>
+
+      <p>
+        Built with Astro, Tailwind CSS and deployed as a static website.
+      </p>
+    </div>
+  </div>
+</footer>

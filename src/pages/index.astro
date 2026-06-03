@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import Footer from "../components/Footer.astro";
 
 const aboutCards = [
   {
@@ -186,7 +187,11 @@ const serviceEnquiries = [
 
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Siddhartha Gautam | Web Developer, WordPress Specialist & System Analyst"
+  description="Personal website of Siddhartha Gautam, a web developer, WordPress specialist and system analyst building practical websites, Laravel applications, Angular interfaces and business systems."
+  canonical="https://gautamsiddhartha.com.np/"
+>
   <Header />
 
   <main class="min-h-screen">
@@ -761,4 +766,5 @@ const serviceEnquiries = [
   </div>
 </section>
   </main>
+  <Footer />
 </BaseLayout>

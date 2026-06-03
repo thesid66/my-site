@@ -4,18 +4,36 @@ import "../styles/global.css";
 const {
   title = "Siddhartha Gautam | Web Developer & System Analyst",
   description = "Personal website of Siddhartha Gautam, web developer, WordPress specialist and system analyst based in Nepal.",
+  canonical = "https://gautamsiddhartha.com.np/",
 } = Astro.props;
+
+const siteName = "Siddhartha Gautam";
+const brandColor = "#F08252";
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Siddhartha Gautam" />
+    <meta name="theme-color" content={brandColor} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
