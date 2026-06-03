@@ -1,0 +1,175 @@
+---
+import AnimatedRoles from '../AnimatedRoles.astro'
+import TechMarquee from '../TechMarquee.astro'
+---
+
+<section id="home" class="relative flex min-h-screen items-center overflow-hidden px-6 py-32">
+  <div
+    class="absolute inset-0 -z-20 bg-[linear-gradient(135deg,#0f172a_0%,#020617_55%,#111827_100%)]"
+  >
+  </div>
+
+  <div
+    class="pulse-soft absolute -left-32 top-24 -z-10 h-80 w-80 rounded-full bg-[#F08252]/20 blur-3xl"
+  >
+  </div>
+  <div
+    class="pulse-soft absolute bottom-10 -right-40 -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"
+  >
+  </div>
+
+  <div
+    class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(240,130,82,0.16),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_28%)]"
+  >
+  </div>
+
+  <div
+    class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center"
+  >
+    <div class="min-w-0">
+      <p
+        class="mb-5 inline-flex rounded-full border border-orange-300/20 bg-orange-300/10 px-4 py-2 text-sm font-medium text-orange-200"
+      >
+        Available for website, WordPress and custom web system projects
+      </p>
+
+      <h1 class="max-w-6xl text-5xl font-bold tracking-tight text-white md:text-7xl">
+        Hi, I’m
+        <span
+          class="block bg-linear-to-r from-[#F08252] to-orange-300 bg-clip-text text-transparent"
+        >
+          Siddhartha Gautam
+        </span>
+      </h1>
+
+      <AnimatedRoles />
+
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+        I build fast, practical and business-focused websites and web applications using WordPress,
+        React, MERN stack, Laravel, Angular, PHP, MySQL and modern frontend tools.
+      </p>
+
+      <TechMarquee />
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="#projects"
+          class="rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+        >
+          View My Work
+        </a>
+
+        <a
+          href="#contact"
+          class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#F08252] hover:text-[#F08252]"
+        >
+          Contact Me
+        </a>
+      </div>
+
+      <div class="mt-12 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/10 pt-8">
+        <div>
+          <p class="text-3xl font-bold text-white">12+</p>
+          <p class="mt-1 text-sm text-slate-400">Years experience</p>
+        </div>
+
+        <div>
+          <p class="text-3xl font-bold text-white">100+</p>
+          <p class="mt-1 text-sm text-slate-400">Web projects</p>
+        </div>
+
+        <div>
+          <p class="text-3xl font-bold text-white">Full</p>
+          <p class="mt-1 text-sm text-slate-400">Stack approach</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative min-w-0">
+      <div
+        class="float-soft absolute -right-4 -top-6 z-30 hidden rounded-2xl border border-white/10 bg-white/10 px-5 py-4 shadow-2xl backdrop-blur md:block"
+      >
+        <p class="text-sm font-medium text-slate-300">Current stack</p>
+        <p class="mt-1 text-lg font-semibold text-white">Astro + Tailwind</p>
+      </div>
+
+      <div
+        data-tilt-card
+        class="relative z-20 rounded-4xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur transition-transform duration-300 ease-out"
+      >
+        <div class="overflow-hidden rounded-3xl bg-slate-900">
+          <div class="bg-linear-to-br from-[#F08252] via-orange-500 to-slate-800 p-1">
+            <div class="rounded-[1.35rem] bg-slate-950 p-6">
+              <div class="flex items-center gap-5">
+                <div
+                  class="relative h-24 w-24 shrink-0 overflow-hidden rounded-3xl border-2 border-[#F08252]/60 bg-slate-900 shadow-lg shadow-orange-500/20"
+                >
+                  <img
+                    src="/images/profile/siddhartha.webp"
+                    alt="Siddhartha Gautam"
+                    loading="eager"
+                    class="h-full w-full object-cover"
+                  />
+
+                  <div class="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"></div>
+                </div>
+
+                <div>
+                  <p class="text-2xl font-bold text-white">Siddhartha Gautam</p>
+                  <p class="mt-1 text-sm text-slate-400">Developer / System Analyst</p>
+                </div>
+              </div>
+
+              <div class="mt-8 space-y-4">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <p class="text-sm text-slate-400">Main focus</p>
+                  <p class="mt-2 text-lg font-semibold text-white">
+                    Lightweight, fast and maintainable websites
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <p class="text-sm text-slate-400">Project type</p>
+                  <p class="mt-2 text-lg font-semibold text-white">
+                    Personal portfolio replacing WordPress
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="rounded-2xl bg-white/5 p-4">
+                    <p class="text-2xl font-bold text-[#F08252]">No</p>
+                    <p class="mt-1 text-sm text-slate-400">Database</p>
+                  </div>
+
+                  <div class="rounded-2xl bg-white/5 p-4">
+                    <p class="text-2xl font-bold text-[#F08252]">No</p>
+                    <p class="mt-1 text-sm text-slate-400">Plugins</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/10 bg-white/3 p-6">
+            <div class="flex flex-wrap gap-2">
+              {
+                ['Fast', 'SEO-ready', 'Responsive', 'Render deploy'].map((item) => (
+                  <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                    {item}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="float-soft absolute -bottom-16 left-6 z-30 hidden rounded-2xl border border-white/10 bg-slate-900/95 px-5 py-4 shadow-2xl backdrop-blur md:block"
+      >
+        <p class="text-sm text-slate-400">Website goal</p>
+        <p class="mt-1 font-semibold text-white">Fast personal brand site</p>
+      </div>
+    </div>
+  </div>
+</section>

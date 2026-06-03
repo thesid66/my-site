@@ -1,0 +1,125 @@
+---
+import type { Experience } from '../../data/home'
+import SectionTitle from '../SectionTitle.astro'
+
+type Props = {
+  experiences: Experience[]
+}
+
+const { experiences } = Astro.props
+---
+
+<section id="experience" class="relative overflow-visible bg-slate-900/50 px-6 py-24">
+  <div class="absolute -left-48 top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"></div>
+
+  <div class="mx-auto w-full max-w-368">
+    <SectionTitle
+      eyebrow="Experience"
+      title="Professional timeline"
+      description="A practical web development journey covering training, freelance projects, government contract work, business websites and modern web application development."
+    />
+
+    <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <!-- Left sticky summary only -->
+      <div class="lg:sticky lg:top-[28vh] lg:self-start">
+        <div class="rounded-4xl border border-white/10 bg-slate-950/70 p-8 shadow-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+            Career Snapshot
+          </p>
+
+          <h3 class="mt-4 text-3xl font-bold tracking-tight text-white">
+            From instructor to full-stack web developer.
+          </h3>
+
+          <p class="mt-5 leading-8 text-slate-300">
+            My experience includes teaching technology, building websites and web applications,
+            working with government project systems, managing business websites and developing
+            modern WordPress, Laravel, React, MERN, Angular and Astro-based solutions.
+          </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+              <p class="text-3xl font-bold text-[#F08252]">
+                {experiences.length}
+              </p>
+
+              <p class="mt-2 text-sm text-slate-400">Timeline entries</p>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+              <p class="text-3xl font-bold text-[#F08252]">10+</p>
+
+              <p class="mt-2 text-sm text-slate-400">Years of practical work</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right stacked timeline -->
+      <div class="relative">
+        <div class="absolute left-6 top-8 hidden h-full w-px bg-white/10 sm:block"></div>
+
+        <div class="sticky space-y-15">
+          {
+            experiences.map((experience, index) => (
+              <div
+                class="sticky top-28"
+                style={`top: ${7 + index * 3.2}rem; z-index: ${20 + index};`}
+              >
+                <article
+                  class="relative rounded-4xl border border-white/10 bg-slate-950 p-6 
+                       backdrop-blur transition
+                      hover:border-[#F08252]/50"
+                >
+                  <div class="grid gap-6 sm:grid-cols-[auto_1fr]">
+                    <div class="relative hidden sm:block">
+                      <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[#F08252]/40 bg-slate-950 text-sm font-bold text-[#F08252] shadow-lg shadow-orange-500/10">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                    </div>
+
+                    <div class="min-w-0">
+                      <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                        <div>
+                          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-[#F08252]">
+                            {experience.period}
+                          </p>
+
+                          <h3 class="mt-3 text-2xl font-bold text-white">{experience.role}</h3>
+
+                          <p class="mt-2 text-base font-medium text-slate-400">
+                            {experience.company}
+                          </p>
+                        </div>
+
+                        <span class="inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                          Experience
+                        </span>
+                      </div>
+
+                      <p class="mt-5 leading-8 text-slate-300">{experience.description}</p>
+
+                      {experience.points && (
+                        <ul class="mt-6 grid gap-3">
+                          {experience.points.map((point) => (
+                            <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/3 p-3 text-sm leading-6 text-slate-300">
+                              <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
+                                ✓
+                              </span>
+
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
