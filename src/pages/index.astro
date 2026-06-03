@@ -217,6 +217,28 @@ const testimonials = [
     role: 'Senior Project Officer (Urban Development), ADB'
   }
 ]
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discover',
+    text: 'Understand the business goal, target users, required features and the actual problem the website or system needs to solve.'
+  },
+  {
+    number: '02',
+    title: 'Plan',
+    text: 'Prepare the sitemap, content structure, user flow, database idea or technical direction before starting development.'
+  },
+  {
+    number: '03',
+    title: 'Build',
+    text: 'Develop the frontend, backend, CMS setup, admin panel or custom workflow using clean and maintainable code.'
+  },
+  {
+    number: '04',
+    title: 'Improve',
+    text: 'Test, refine, optimise performance, fix issues and prepare the project for real use, handover or deployment.'
+  }
+]
 ---
 
 <BaseLayout
@@ -490,6 +512,67 @@ const testimonials = [
                 }
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="relative overflow-hidden px-6 py-24">
+      <div class="absolute -right-48 top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl">
+      </div>
+
+      <div class="mx-auto max-w-6xl">
+        <SectionTitle
+          eyebrow="Process"
+          title="How I approach each project"
+          description="A simple and practical workflow that keeps the project clear from planning to delivery."
+        />
+
+        <div class="grid gap-6 lg:grid-cols-4">
+          {
+            processSteps.map((step, index) => (
+              <article class="group relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
+                <div class="absolute right-0 top-0 h-28 w-28 rounded-bl-full bg-[#F08252]/10 transition group-hover:bg-[#F08252]/20" />
+
+                <div class="relative">
+                  <span class="inline-flex rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-semibold text-orange-200">
+                    {step.number}
+                  </span>
+
+                  <h3 class="mt-8 text-2xl font-bold text-white">{step.title}</h3>
+
+                  <p class="mt-4 leading-7 text-slate-300">{step.text}</p>
+
+                  <div class="mt-8 flex items-center gap-3">
+                    <div class="h-px flex-1 bg-white/10" />
+
+                    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F08252]/15 text-sm font-bold text-[#F08252] transition group-hover:bg-[#F08252] group-hover:text-white">
+                      {index + 1}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 rounded-4xl border border-white/10 bg-slate-950/70 p-8">
+          <div class="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+                Practical Delivery
+              </p>
+
+              <h3 class="mt-4 text-3xl font-bold tracking-tight text-white">
+                Built with structure, not guesswork.
+              </h3>
+            </div>
+
+            <p class="leading-8 text-slate-300">
+              My process focuses on understanding the purpose first, planning the structure
+              properly, then building a clean solution that can be maintained, improved and used
+              practically by real users.
+            </p>
           </div>
         </div>
       </div>
