@@ -1,0 +1,91 @@
+---
+const roles = ["Designer.", "Developer.", "System Analyst."];
+---
+
+<div class="mt-6" aria-label="Designer. Developer. System Analyst.">
+  <div class="relative h-12 w-full max-w-[22rem] overflow-hidden rounded-xl border border-white/10 bg-slate-950/80 shadow-lg shadow-black/20">
+    {roles.map((role, index) => (
+      <span
+        class="animated-role absolute inset-0 flex items-center px-5 text-sm font-bold uppercase tracking-[0.35em] text-white"
+        style={`--delay: ${index * 3}s`}
+      >
+        <span class="animated-role-highlight"></span>
+        <span class="relative z-10">{role}</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .animated-role {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: role-cycle 9s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .animated-role-highlight {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(240, 130, 82, 0.28), rgba(240, 130, 82, 0.08));
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: role-highlight 9s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes role-cycle {
+    0% {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    7%,
+    28% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    35%,
+    100% {
+      opacity: 0;
+      transform: translateY(-14px);
+    }
+  }
+
+  @keyframes role-highlight {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+
+    8%,
+    28% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    35%,
+    100% {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animated-role,
+    .animated-role-highlight {
+      animation: none;
+    }
+
+    .animated-role:first-child {
+      opacity: 1;
+      transform: none;
+    }
+
+    .animated-role:first-child .animated-role-highlight {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+</style>

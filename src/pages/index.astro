@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import AnimatedRoles from "../components/AnimatedRoles.astro";
 import Footer from "../components/Footer.astro";
 
 const aboutCards = [
@@ -68,6 +69,11 @@ const professionalSkills = [
   { label: "Social Media Marketing", level: 95 },
   { label: "Leadership", level: 90 },
   { label: "Decision Making", level: 85 },
+  { label: "Problem Solving", level: 90 },
+  { label: "Project Planning", level: 88 },
+  { label: "Client Coordination", level: 87 },
+  { label: "Team Collaboration", level: 86 },
+  { label: "Time Management", level: 89 },
 ];
 
 
@@ -228,9 +234,7 @@ const serviceEnquiries = [
             </span>
           </h1>
 
-          <p class="mt-6 max-w-2xl text-xl font-medium text-slate-200 md:text-2xl">
-            Web Developer · WordPress Specialist · System Analyst
-          </p>
+          <AnimatedRoles />
 
           <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             I build fast, practical and business-focused websites and web applications
