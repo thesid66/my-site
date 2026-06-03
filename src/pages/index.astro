@@ -901,39 +901,91 @@ const processSteps = [
       </div>
     </section>
 
-    <section id="testimonials" class="relative overflow-hidden px-6 py-24">
-      <div
-        class="absolute left-[-12rem] top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl"
-      >
+    <section id="testimonials" class="relative overflow-hidden bg-slate-900/50 px-6 py-24">
+      <div class="absolute -left-48 top-24 -z-10 h-96 w-96 rounded-full bg-[#F08252]/10 blur-3xl">
       </div>
 
-      <div class="mx-auto max-w-6xl">
+      <div
+        class="absolute right-10 top-20 -z-10 text-[18rem] font-black leading-none text-white/[0.025]"
+      >
+        “
+      </div>
+
+      <div class="mx-auto w-full max-w-368">
         <SectionTitle
-          eyebrow="Testimonials"
-          title="What people say about my work"
-          description="Feedback from professionals and organisations I have worked with on web applications, websites and digital systems."
+          eyebrow="Testimonial"
+          title="Trusted for practical and reliable development work"
+          description="Feedback from professional project work involving custom web application development and organisational needs."
         />
 
-        <div class="mx-auto max-w-6xl">
+        <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
+          <div class="rounded-4xl border border-white/10 bg-slate-950/70 p-8 shadow-2xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+              Client Feedback
+            </p>
+
+            <h3 class="mt-5 text-3xl font-bold tracking-tight text-white">
+              Real project work, real organisational outcome.
+            </h3>
+
+            <p class="mt-5 leading-8 text-slate-300">
+              This feedback reflects work completed on a custom web application built to record and
+              manage project information with attention to usability, reliability and practical
+              requirements.
+            </p>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-1">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p class="mt-2 text-sm text-slate-400">Project environment</p>
+                <p class="text-3xl font-bold text-[#F08252]">
+                  National Reconstruction Authority (NRA)
+                </p>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p class="mt-2 text-sm text-slate-400">Web application</p>
+                <p class="text-3xl font-bold text-[#F08252]">
+                  Project Management Information System (PMIS)
+                </p>
+              </div>
+            </div>
+          </div>
+
           {
             testimonials.map((testimonial) => (
-              <article class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur md:p-10">
-                <div class="absolute right-6 top-6 text-7xl font-bold leading-none text-[#F08252]/20">
+              <article class="relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-8 shadow-2xl transition hover:-translate-y-1 hover:border-[#F08252]/50 hover:bg-white/[0.07]">
+                <div class="absolute right-6 top-4 text-8xl font-black leading-none text-[#F08252]/15">
                   “
                 </div>
 
                 <div class="relative">
-                  <p class="text-lg leading-9 text-slate-300 md:text-xl">“{testimonial.quote}”</p>
+                  <div class="mb-8 inline-flex rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-4 py-2 text-sm font-semibold text-orange-200">
+                    Professional Recommendation
+                  </div>
 
-                  <div class="mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
-                    <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F08252] text-lg font-bold text-white shadow-lg shadow-orange-500/20">
-                      NG
+                  <blockquote class="text-lg leading-9 text-slate-200">
+                    “{testimonial.quote}”
+                  </blockquote>
+
+                  <div class="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex items-center gap-4">
+                      <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F08252] text-xl font-bold text-white shadow-lg shadow-orange-500/20">
+                        {testimonial.name
+                          .split(' ')
+                          .map((part) => part[0])
+                          .join('')
+                          .slice(0, 2)}
+                      </div>
+
+                      <div>
+                        <p class="text-lg font-bold text-white">{testimonial.name}</p>
+
+                        <p class="mt-1 text-sm leading-6 text-slate-400">{testimonial.role}</p>
+                      </div>
                     </div>
 
-                    <div>
-                      <h3 class="text-xl font-semibold text-white">{testimonial.name}</h3>
-
-                      <p class="mt-1 text-sm leading-6 text-slate-400">{testimonial.role}</p>
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-3 text-sm font-semibold text-slate-300">
+                      Verified project feedback
                     </div>
                   </div>
                 </div>
