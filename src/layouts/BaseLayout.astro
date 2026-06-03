@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Siddhartha Gautam | Web Developer & System Analyst",
+  description = "Personal website of Siddhartha Gautam, web developer, WordPress specialist and system analyst based in Nepal.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+
+  <body class="bg-slate-950 text-slate-100 antialiased">
+    <slot />
+  </body>
+</html>

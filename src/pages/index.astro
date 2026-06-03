@@ -1,11 +1,67 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <main class="min-h-screen">
+    <section class="relative flex min-h-screen items-center overflow-hidden px-6 py-24">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(240,130,82,0.22),_transparent_35%),linear-gradient(135deg,_#0f172a_0%,_#020617_100%)]"></div>
+
+      <div class="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p class="mb-4 inline-flex rounded-full border border-orange-300/20 bg-orange-300/10 px-4 py-2 text-sm font-medium text-orange-200">
+            Web Developer · WordPress Specialist · System Analyst
+          </p>
+
+          <h1 class="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
+            Hi, I’m
+            <span class="text-[#F08252]">Siddhartha Gautam</span>
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
+            I build fast, practical and business-focused websites and web applications using WordPress, Laravel, Angular, PHP, MySQL and modern frontend tools.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+            >
+              View My Work
+            </a>
+
+            <a
+              href="#contact"
+              class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#F08252] hover:text-[#F08252]"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+          <div class="rounded-2xl bg-slate-900 p-6">
+            <p class="text-sm uppercase tracking-[0.3em] text-[#F08252]">
+              Current Focus
+            </p>
+
+            <h2 class="mt-4 text-2xl font-semibold text-white">
+              Lightweight personal website replacing WordPress
+            </h2>
+
+            <p class="mt-4 leading-7 text-slate-300">
+              A fast single-page portfolio website hosted outside WordPress, designed for better speed, cleaner maintenance and Git-based deployment.
+            </p>
+
+            <div class="mt-6 grid gap-3 text-sm text-slate-300">
+              <div class="rounded-xl bg-white/5 p-4">Astro + Tailwind CSS</div>
+              <div class="rounded-xl bg-white/5 p-4">Static single-page website</div>
+              <div class="rounded-xl bg-white/5 p-4">Render deployment</div>
+              <div class="rounded-xl bg-white/5 p-4">No WordPress, no database, no plugins</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
