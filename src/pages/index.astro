@@ -85,7 +85,14 @@ const projects = [
     description:
       'A modern eCommerce website with product management, checkout, order handling and Filament-powered admin controls.',
     tags: ['Laravel', 'Filament', 'Livewire', 'Tailwind', 'MySQL'],
-    features: ['Product catalogue', 'Checkout flow', 'Admin panel', 'Order management']
+    features: ['Product catalogue', 'Checkout flow', 'Admin panel', 'Order management'],
+    problem: 'Needed a modern online store with manageable products, checkout and order flow.',
+    solution:
+      'Built a Laravel-based eCommerce system with Filament admin tools and structured product/order management.',
+    result:
+      'Created a scalable business-ready store structure that can support real product, checkout and admin workflows.',
+    linkLabel: 'View Case Study',
+    link: '#'
   },
   // {
   //   title: 'Payroll & Inventory Management System',
@@ -103,7 +110,14 @@ const projects = [
     description:
       'A WordPress website using Elementor, ACF, custom post types, useful links, filtering logic and content management features.',
     tags: ['WordPress', 'Elementor', 'ACF', 'PHP', 'CPT'],
-    features: ['Custom post types', 'ACF filters', 'Useful links', 'Popup content']
+    features: ['Custom post types', 'ACF filters', 'Useful links', 'Popup content'],
+    problem:
+      'Needed a flexible content-managed website with structured resources and useful link filtering.',
+    solution: 'Used WordPress, Elementor, ACF and custom PHP logic to organise dynamic content.',
+    result:
+      'Improved content management and created a cleaner structure for users to access organised resources.',
+    linkLabel: 'View Website',
+    link: '#'
   },
   {
     title: 'Calorie Calculator App',
@@ -112,7 +126,14 @@ const projects = [
     description:
       'A calorie tracking application designed to manage food records, custom food entries and nutrition-related calculations through a structured backend API.',
     tags: ['Laravel', 'API', 'Database', 'Authentication', 'Food Tracking'],
-    features: ['Food database', 'Custom food entries', 'Calorie tracking', 'API-based structure']
+    features: ['Food database', 'Custom food entries', 'Calorie tracking', 'API-based structure'],
+    problem: 'Needed a structured way for users to track food, calories and nutrition goals.',
+    solution:
+      'Planned and built an authenticated Laravel API with food records, custom entries and goal tracking.',
+    result:
+      'Created a scalable foundation for a calorie tracking system that can later support web and mobile apps.',
+    linkLabel: 'View Project',
+    link: '#'
   },
   {
     title: 'World Cup 2026 Predictor',
@@ -121,7 +142,15 @@ const projects = [
     description:
       'An interactive football prediction application for the 2026 World Cup, designed around match predictions, tournament logic and user-friendly result tracking.',
     tags: ['Prediction App', 'Football', 'World Cup 2026', 'Frontend', 'Interactive UI'],
-    features: ['Match predictions', 'Tournament flow', 'Result tracking', 'Interactive experience']
+    features: ['Match predictions', 'Tournament flow', 'Result tracking', 'Interactive experience'],
+    problem:
+      'Needed a fun and interactive way to predict World Cup matches and tournament progress.',
+    solution:
+      'Designed an interactive prediction interface around match selection, tournament flow and result tracking.',
+    result:
+      'Created an engaging football prediction experience that can be expanded as tournament details are confirmed.',
+    linkLabel: 'View Project',
+    link: 'https://wcpredict.gautamsiddhartha.com.np/'
   },
   {
     title: 'Personal Static Website',
@@ -130,7 +159,12 @@ const projects = [
     description:
       'A lightweight static personal website replacing WordPress, designed for speed, cleaner maintenance and Render deployment.',
     tags: ['Astro', 'Tailwind', 'Static Site', 'Render'],
-    features: ['No database', 'No plugins', 'Fast loading', 'Git deployment']
+    features: ['No database', 'No plugins', 'Fast loading', 'Git deployment'],
+    problem: 'Needed a faster and easier-to-maintain personal website without WordPress overhead.',
+    solution: 'Rebuilt the site as a static Astro and Tailwind website with Git-based deployment.',
+    result: 'Created a cleaner, faster and more maintainable personal brand website.',
+    linkLabel: 'View Website',
+    link: 'https://gautamsiddhartha.com.np/'
   }
 ]
 
@@ -737,7 +771,7 @@ const processSteps = [
                     ))}
                   </div>
 
-                  <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div class="mt-5 grid gap-2 sm:grid-cols-2">
                     {project.features.map((feature) => (
                       <div class="flex items-center gap-3 rounded-2xl bg-slate-950/50 p-3 text-sm text-slate-300">
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#F08252]/15 text-xs font-bold text-[#F08252]">
@@ -746,6 +780,40 @@ const processSteps = [
                         {feature}
                       </div>
                     ))}
+                  </div>
+
+                  <div class="mt-6 grid gap-3">
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
+                      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[#F08252]">
+                        Problem
+                      </p>
+                      <p class="mt-2 text-sm leading-6 text-slate-300">{project.problem}</p>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
+                      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[#F08252]">
+                        Solution
+                      </p>
+                      <p class="mt-2 text-sm leading-6 text-slate-300">{project.solution}</p>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
+                      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[#F08252]">
+                        Result
+                      </p>
+                      <p class="mt-2 text-sm leading-6 text-slate-300">{project.result}</p>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+                    <a
+                      href={project.link}
+                      class="inline-flex rounded-full bg-[#F08252] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+                    >
+                      {project.linkLabel}
+                    </a>
+
+                    <span class="text-sm text-slate-500">{project.type}</span>
                   </div>
                 </div>
               </article>
