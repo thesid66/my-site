@@ -1,0 +1,57 @@
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!prefersReducedMotion) {
+    const revealSelectors = [
+      'section .mx-auto > *',
+      'section article',
+      'section .rounded-4xl',
+      'section .rounded-3xl'
+    ]
+
+    const revealItems = [
+      ...new Set(revealSelectors.flatMap((selector) => [...document.querySelectorAll(selector)]))
+    ]
+
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal-on-scroll')
+      item.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 80}ms`)
+    })
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            revealObserver.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -80px 0px'
+      }
+    )
+
+    revealItems.forEach((item) => revealObserver.observe(item))
+
+    const tiltCards = document.querySelectorAll('[data-tilt-card]')
+
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        const rect = card.getBoundingClientRect()
+        const x = event.clientX - rect.left
+        const y = event.clientY - rect.top
+
+        const rotateY = (x / rect.width - 0.5) * 8
+        const rotateX = (y / rect.height - 0.5) * -8
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+      })
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+      })
+    })
+  }
+</script>
