@@ -51,13 +51,25 @@ const skillGroups = [
   },
 ];
 
-const skillMeters = [
+const technicalSkills = [
+  { label: "Web Design", level: 80 },
+  { label: "PHP / MySQL", level: 85 },
+  { label: "jQuery / JavaScript / JS Frameworks", level: 75 },
+  { label: "Graphics", level: 50 },
   { label: "WordPress / Elementor", level: 95 },
   { label: "PHP / MySQL", level: 90 },
   { label: "Laravel", level: 85 },
   { label: "Angular", level: 82 },
   { label: "System Analysis", level: 88 },
 ];
+
+const professionalSkills = [
+  { label: "Communication", level: 85 },
+  { label: "Social Media Marketing", level: 95 },
+  { label: "Leadership", level: 90 },
+  { label: "Decision Making", level: 85 },
+];
+
 
 const projects = [
   {
@@ -469,41 +481,81 @@ const serviceEnquiries = [
           ))}
         </div>
 
-        <div class="mt-8 grid gap-8 rounded-[2rem] border border-white/10 bg-slate-950/70 p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div class="mt-8 rounded-[2rem] border border-white/10 bg-slate-950/70 p-8">
+  <div class="mb-10 text-center">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
+      My Expertise
+    </p>
+
+    <h3 class="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      Technical & Professional Skills
+    </h3>
+
+    <p class="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
+      A practical combination of development skills, business understanding and communication-focused work experience.
+    </p>
+  </div>
+
+  <div class="grid gap-10 lg:grid-cols-2">
+    <div>
+      <h4 class="mb-6 text-2xl font-bold text-white">
+        Technical Skills
+      </h4>
+
+      <div class="space-y-6">
+        {technicalSkills.map((skill) => (
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#F08252]">
-              Capability Overview
-            </p>
+            <div class="mb-2 flex items-center justify-between gap-4">
+              <p class="font-medium tracking-wide text-slate-200">
+                {skill.label}
+              </p>
 
-            <h3 class="mt-4 text-3xl font-bold tracking-tight text-white">
-              From website design to full business systems
-            </h3>
+              <p class="text-sm font-semibold text-[#F08252]">
+                {skill.level}%
+              </p>
+            </div>
 
-            <p class="mt-5 leading-8 text-slate-300">
-              My strength is not only writing code, but understanding how websites,
-              dashboards, admin panels, workflows and business processes connect
-              together into one useful system.
-            </p>
+            <div class="h-4 overflow-hidden rounded-full bg-white/10">
+              <div
+                class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
+                style={`width: ${skill.level}%`}
+              ></div>
+            </div>
           </div>
+        ))}
+      </div>
+    </div>
 
-          <div class="space-y-5">
-            {skillMeters.map((skill) => (
-              <div>
-                <div class="mb-2 flex items-center justify-between gap-4">
-                  <p class="font-medium text-white">{skill.label}</p>
-                  <p class="text-sm text-slate-400">{skill.level}%</p>
-                </div>
+    <div>
+      <h4 class="mb-6 text-2xl font-bold text-white">
+        Professional Skills
+      </h4>
 
-                <div class="h-3 overflow-hidden rounded-full bg-white/10">
-                  <div
-                    class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
-                    style={`width: ${skill.level}%`}
-                  ></div>
-                </div>
-              </div>
-            ))}
+      <div class="space-y-6">
+        {professionalSkills.map((skill) => (
+          <div>
+            <div class="mb-2 flex items-center justify-between gap-4">
+              <p class="font-medium tracking-wide text-slate-200">
+                {skill.label}
+              </p>
+
+              <p class="text-sm font-semibold text-[#F08252]">
+                {skill.level}%
+              </p>
+            </div>
+
+            <div class="h-4 overflow-hidden rounded-full bg-white/10">
+              <div
+                class="h-full rounded-full bg-gradient-to-r from-[#F08252] to-orange-300"
+                style={`width: ${skill.level}%`}
+              ></div>
+            </div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
