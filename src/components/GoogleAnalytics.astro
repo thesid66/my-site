@@ -1,0 +1,22 @@
+---
+const gaId = import.meta.env.PUBLIC_GA_ID || 'G-EZ0NNMP60N'
+const enableAnalytics = import.meta.env.PROD && gaId
+---
+
+{
+  enableAnalytics && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+
+      <script
+        is:inline
+        set:html={`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaId}');
+        `}
+      />
+    </>
+  )
+}
