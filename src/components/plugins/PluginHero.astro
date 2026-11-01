@@ -1,0 +1,112 @@
+---
+import type { PluginLandingData } from '../../data/plugins'
+
+type Props = {
+  plugin: PluginLandingData
+}
+
+const { plugin } = Astro.props
+---
+
+<section id="plugin-home" class="relative overflow-hidden px-6 py-20 md:py-28">
+  <div class="absolute inset-0 -z-20 bg-[linear-gradient(135deg,#0f172a_0%,#020617_55%,#111827_100%)]"></div>
+  <div class="absolute -left-32 top-12 -z-10 h-96 w-96 rounded-full bg-[#F08252]/15 blur-3xl"></div>
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(240,130,82,0.14),_transparent_32%)]"></div>
+
+  <div class="mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:items-center">
+    <div class="min-w-0">
+      <p class="inline-flex rounded-full border border-[#F08252]/25 bg-[#F08252]/10 px-4 py-2 text-sm font-semibold text-orange-200">
+        {plugin.badge}
+      </p>
+
+      <h1 class="mt-7 text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-white md:text-7xl">
+        {plugin.headline}
+        <span class="block text-[#F08252]">{plugin.accentHeadline}</span>
+      </h1>
+
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">{plugin.description}</p>
+
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a
+          href={plugin.wordpressUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#F08252] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+        >
+          Install from WordPress.org
+        </a>
+        <a
+          href="#features"
+          class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#F08252] hover:text-[#F08252]"
+        >
+          Explore features
+        </a>
+      </div>
+
+      <p class="mt-4 text-sm text-slate-500">
+        No subscription · No conversion quota · No external image service
+      </p>
+    </div>
+
+    <div class="relative min-w-0">
+      <div class="absolute inset-8 -z-10 rounded-full bg-[#F08252]/15 blur-3xl"></div>
+      <div class="rounded-4xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+        <div
+          class="overflow-hidden rounded-3xl border border-white/10 bg-slate-100 text-slate-900"
+          role="img"
+          aria-label={`${plugin.name} conversion dashboard preview`}
+        >
+          <div class="flex items-center gap-2 bg-slate-900 px-5 py-4" aria-hidden="true">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#F08252]"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-slate-600"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-slate-600"></span>
+          </div>
+
+          <div class="p-5 sm:p-7">
+            <h2 class="text-base font-bold text-slate-900">{plugin.preview.title}</h2>
+
+            <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {
+                plugin.preview.metrics.map((metric) => (
+                  <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+                    <strong class="block text-xl text-slate-950">{metric.value}</strong>
+                    <span class="mt-1 block text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                      {metric.label}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="mt-6 h-2.5 overflow-hidden rounded-full bg-slate-200">
+              <div
+                class="h-full rounded-full bg-linear-to-r from-cyan-500 to-[#F08252]"
+                style={`width: ${Math.min(Math.max(plugin.preview.progress, 0), 100)}%`}
+              ></div>
+            </div>
+
+            <div class="mt-4 flex flex-col gap-3 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+              <span>{plugin.preview.status}</span>
+              <span class="self-start rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-600 sm:self-auto">
+                {plugin.preview.formats.join(' · ')}
+              </span>
+            </div>
+
+            {
+              plugin.preview.logs.length > 0 && (
+                <div class="mt-5 space-y-1 rounded-xl bg-slate-900 p-4 font-mono text-[10px] leading-5 text-slate-200 sm:text-xs">
+                  {plugin.preview.logs.map((log, index) => (
+                    <p>
+                      <span class="text-cyan-300">[{`10:42:${18 + index * 2}`}]</span> {log}
+                    </p>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
