@@ -237,4 +237,3 @@ Run `git diff --check` and `git status --short`; confirm there are no generated 
 git add <only-scoped-files>
 git commit -m "fix: polish reusable plugin landing pages"
 ```
-

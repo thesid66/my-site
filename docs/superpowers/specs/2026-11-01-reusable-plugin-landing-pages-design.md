@@ -78,4 +78,3 @@ Each plugin definition supplies its slug, name, badge, headline, accent line, de
 - Adding a second plugin requires one data record and no duplicated page markup.
 - WordPress.org and optional source links point to verified Rupanta destinations.
 - Desktop and mobile views are visually checked from a production build.
-
