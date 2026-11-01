@@ -1,0 +1,22 @@
+---
+import PluginLandingPage from '../../components/plugins/PluginLandingPage.astro'
+import { plugins, type PluginLandingData } from '../../data/plugins'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export function getStaticPaths() {
+  return plugins.map((plugin) => ({
+    params: { slug: plugin.slug },
+    props: { plugin }
+  }))
+}
+
+const { plugin } = Astro.props as { plugin: PluginLandingData }
+---
+
+<BaseLayout
+  title={plugin.seo.title}
+  description={plugin.seo.description}
+  canonical={plugin.canonical}
+>
+  <PluginLandingPage plugin={plugin} />
+</BaseLayout>
