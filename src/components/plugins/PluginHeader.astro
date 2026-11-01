@@ -1,0 +1,47 @@
+---
+import type { PluginLandingData } from '../../data/plugins'
+
+type Props = {
+  plugin: PluginLandingData
+}
+
+const { plugin } = Astro.props
+
+const navItems = [
+  { label: 'Features', href: '#features' },
+  { label: 'How it works', href: '#workflow' },
+  { label: 'Requirements', href: '#requirements' },
+  { label: 'FAQ', href: '#faq' }
+]
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
+  <div class="mx-auto flex min-h-17 max-w-6xl items-center justify-between gap-6 px-6 py-3">
+    <a href="/" class="text-lg font-bold tracking-tight text-white">
+      Siddhartha<span class="text-[#F08252]">.</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label={`${plugin.name} page sections`}>
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-semibold text-slate-300 transition hover:text-[#F08252]"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href={plugin.wordpressUrl}
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#F08252] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-500"
+    >
+      Get the plugin
+    </a>
+  </div>
+</header>
+
