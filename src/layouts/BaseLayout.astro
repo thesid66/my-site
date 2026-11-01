@@ -5,7 +5,9 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 const {
   title = 'Siddhartha Gautam | Web Developer & System Analyst',
   description = 'Personal website of Siddhartha Gautam, web developer, WordPress specialist, React/MERN developer and system analyst based in Nepal.',
-  canonical = 'https://gautamsiddhartha.com.np/'
+  canonical = 'https://gautamsiddhartha.com.np/',
+  image,
+  twitterCard = 'summary'
 } = Astro.props
 
 const siteName = 'Siddhartha Gautam'
@@ -33,10 +35,12 @@ const brandColor = '#F08252'
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={image} />}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
