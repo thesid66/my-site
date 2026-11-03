@@ -27,12 +27,37 @@ const { projects } = Astro.props
           >
             <div class="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-[#F08252]/10 transition group-hover:bg-[#F08252]/20" />
             <div class="mb-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950">
-              <img
-                src={project.image}
-                alt={`${project.title} project preview`}
-                loading="lazy"
-                class="aspect-video w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-              />
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} project preview`}
+                  loading="lazy"
+                  class="aspect-video w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                />
+              ) : (
+                <div
+                  role="img"
+                  aria-label={`${project.title} project preview`}
+                  class="relative flex aspect-video flex-col justify-between overflow-hidden bg-[radial-gradient(circle_at_90%_10%,rgba(240,130,82,0.27),transparent_45%),linear-gradient(135deg,#0f172a_0%,#020617_100%)] p-6 transition duration-500 group-hover:scale-105 sm:p-8"
+                >
+                  <div aria-hidden="true" class="absolute -bottom-14 -right-14 h-48 w-48 rounded-full border border-[#F08252]/20"></div>
+                  <span class="relative w-fit rounded-full border border-[#F08252]/30 bg-[#F08252]/10 px-3 py-1.5 text-xs font-semibold text-orange-200">
+                    {project.type}
+                  </span>
+                  <div class="relative">
+                    <p class="max-w-lg text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                      {project.title}
+                    </p>
+                    <div class="mt-5 flex flex-wrap gap-2">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-300">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             <div class="relative">
               <div class="mb-5 flex flex-wrap items-center justify-between gap-4">

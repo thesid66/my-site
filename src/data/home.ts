@@ -17,7 +17,7 @@ export type SkillItem = {
 export type Project = {
   title: string
   type: string
-  image: string
+  image?: string
   description: string
   tags: string[]
   features: string[]
@@ -178,6 +178,27 @@ export const projects: Project[] = [
   //   tags: ['Angular', 'PHP', 'MySQL', 'REST API', 'Payroll'],
   //   features: ['Attendance', 'Leave requests', 'Payroll', 'Inventory', 'Sales & purchase']
   // },
+  {
+    title: 'Rupanta Media Converter',
+    type: 'Free WordPress WebP & AVIF Plugin',
+    description:
+      'An open-source WordPress image converter that creates WebP and AVIF versions of JPEG and PNG uploads locally, with automatic conversion and bulk processing for the existing Media Library.',
+    tags: ['WordPress', 'PHP', 'WebP', 'AVIF', 'Open Source'],
+    features: [
+      'Automatic upload conversion',
+      'Bulk Media Library conversion',
+      'WebP and AVIF delivery',
+      'Original image fallbacks'
+    ],
+    problem:
+      'WordPress site owners need modern image formats without relying on a paid upgrade, cloud conversion service or replacing the original media files.',
+    solution:
+      'Built a free WordPress plugin using on-server GD or Imagick encoding, background batch conversion, progress logs and compatible frontend picture markup.',
+    result:
+      'Published on WordPress.org with free WebP and AVIF conversion for new uploads and existing Media Library images.',
+    linkLabel: 'View Plugin',
+    link: '/plugins/rupanta-media-converter/'
+  },
   {
     title: 'NEPAFE Website',
     type: 'WordPress / Elementor Website',
