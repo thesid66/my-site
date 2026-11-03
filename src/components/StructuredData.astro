@@ -1,0 +1,136 @@
+---
+import type { PluginLandingData } from '../data/plugins'
+
+interface Props {
+  title: string
+  description: string
+  canonical: string
+  plugin?: PluginLandingData
+}
+
+const { title, description, canonical, plugin } = Astro.props
+
+const homeUrl = 'https://gautamsiddhartha.com.np/'
+const pageUrl = new URL(canonical, homeUrl).href
+const websiteId = `${homeUrl}#website`
+const personId = `${homeUrl}#person`
+const webpageId = `${pageUrl}#webpage`
+
+type SchemaNode = Record<string, unknown>
+
+const webpage: SchemaNode = {
+  '@type': pageUrl === homeUrl ? 'ProfilePage' : 'WebPage',
+  '@id': webpageId,
+  url: pageUrl,
+  name: title,
+  description,
+  inLanguage: 'en',
+  isPartOf: { '@id': websiteId },
+  author: { '@id': personId }
+}
+
+if (pageUrl === homeUrl) {
+  webpage.mainEntity = { '@id': personId }
+}
+
+const graph: SchemaNode[] = [
+  {
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: homeUrl,
+    name: 'Siddhartha Gautam',
+    inLanguage: 'en',
+    publisher: { '@id': personId }
+  },
+  {
+    '@type': 'Person',
+    '@id': personId,
+    name: 'Siddhartha Gautam',
+    url: homeUrl,
+    image: new URL('/images/profile/siddhartha.webp', homeUrl).href,
+    description: 'Web developer, WordPress specialist and system analyst',
+    jobTitle: 'Web Developer and System Analyst',
+    sameAs: [
+      'https://www.linkedin.com/in/siddhartha-gautam-748935144/',
+      'https://github.com/thesid66'
+    ]
+  },
+  webpage
+]
+
+if (plugin) {
+  const applicationId = `${pageUrl}#software`
+  const breadcrumbId = `${pageUrl}#breadcrumb`
+
+  webpage.mainEntity = { '@id': applicationId }
+  webpage.breadcrumb = { '@id': breadcrumbId }
+
+  graph.push(
+    {
+      '@type': 'SoftwareApplication',
+      '@id': applicationId,
+      name: plugin.name,
+      url: plugin.canonical,
+      description: plugin.description,
+      applicationCategory: 'MultimediaApplication',
+      applicationSubCategory: 'WordPress image conversion plugin',
+      softwareRequirements: plugin.requirements.join('; '),
+      featureList: plugin.features.map((feature) => feature.title),
+      isAccessibleForFree: true,
+      offers: {
+        '@type': 'Offer',
+        price: 0,
+        url: plugin.wordpressUrl
+      },
+      installUrl: plugin.wordpressUrl,
+      author: { '@id': personId },
+      mainEntityOfPage: { '@id': webpageId }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': breadcrumbId,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: homeUrl
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: plugin.name,
+          item: pageUrl
+        }
+      ]
+    }
+  )
+
+  if (plugin.faqs.length > 0) {
+    const faqId = `${pageUrl}#faq`
+    webpage.hasPart = { '@id': faqId }
+
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': faqId,
+      url: `${pageUrl}#faq`,
+      isPartOf: { '@id': webpageId },
+      mainEntity: plugin.faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: answer
+        }
+      }))
+    })
+  }
+}
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': graph
+}).replace(/</g, '\\u003c')
+---
+
+<script type="application/ld+json" is:inline set:html={jsonLd}></script>

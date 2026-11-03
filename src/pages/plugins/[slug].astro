@@ -17,6 +17,7 @@ const { plugin } = Astro.props as { plugin: PluginLandingData }
   title={plugin.seo.title}
   description={plugin.seo.description}
   canonical={plugin.canonical}
+  plugin={plugin}
 >
   <PluginLandingPage plugin={plugin} />
 </BaseLayout>

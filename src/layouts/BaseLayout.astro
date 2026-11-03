@@ -1,13 +1,25 @@
 ---
 import '../styles/global.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
+import StructuredData from '../components/StructuredData.astro'
+import type { PluginLandingData } from '../data/plugins'
+
+interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+  image?: string
+  twitterCard?: string
+  plugin?: PluginLandingData
+}
 
 const {
   title = 'Siddhartha Gautam | Web Developer & System Analyst',
   description = 'Personal website of Siddhartha Gautam, web developer, WordPress specialist, React/MERN developer and system analyst based in Nepal.',
   canonical = 'https://gautamsiddhartha.com.np/',
   image,
-  twitterCard = 'summary'
+  twitterCard = 'summary',
+  plugin
 } = Astro.props
 
 const siteName = 'Siddhartha Gautam'
@@ -18,6 +30,7 @@ const brandColor = '#F08252'
 <html lang="en" class="scroll-smooth">
   <head>
     <GoogleAnalytics />
+    <StructuredData title={title} description={description} canonical={canonical} plugin={plugin} />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
