@@ -113,12 +113,6 @@ button {
   transform: translateY(0);
 }
 
-.group,
-.rounded-4xl,
-.rounded-3xl {
-  will-change: transform;
-}
-
 .rounded-4xl,
 .rounded-3xl {
   position: relative;

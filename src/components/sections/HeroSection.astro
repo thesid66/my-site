@@ -1,6 +1,8 @@
 ---
 import AnimatedRoles from '../AnimatedRoles.astro'
 import TechMarquee from '../TechMarquee.astro'
+import { Image } from 'astro:assets'
+import profileImage from '../../assets/profile/siddhartha.webp'
 ---
 
 <section id="home" class="relative flex min-h-screen items-center overflow-hidden px-6 py-32">
@@ -104,10 +106,16 @@ import TechMarquee from '../TechMarquee.astro'
                 <div
                   class="relative h-24 w-24 shrink-0 overflow-hidden rounded-3xl border-2 border-[#F08252]/60 bg-slate-900 shadow-lg shadow-orange-500/20"
                 >
-                  <img
-                    src="/images/profile/siddhartha.webp"
+                  <Image
+                    src={profileImage}
                     alt="Siddhartha Gautam"
+                    width={192}
+                    height={192}
+                    format="webp"
+                    quality={80}
                     loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
                     class="h-full w-full object-cover"
                   />
 

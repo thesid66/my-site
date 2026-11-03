@@ -37,23 +37,48 @@
 
     revealItems.forEach((item) => revealObserver.observe(item))
 
-    const tiltCards = document.querySelectorAll<HTMLElement>('[data-tilt-card]')
+    // Only enable the tilt effect for mouse/trackpad users.
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const tiltCards = document.querySelectorAll<HTMLElement>('[data-tilt-card]')
 
-    tiltCards.forEach((card) => {
-      card.addEventListener('mousemove', (event: MouseEvent) => {
-        const rect = card.getBoundingClientRect()
-        const x = event.clientX - rect.left
-        const y = event.clientY - rect.top
+      tiltCards.forEach((card) => {
+        let rect: DOMRect | null = null
+        let frame = 0
+        let pointerX = 0
+        let pointerY = 0
 
-        const rotateY = (x / rect.width - 0.5) * 8
-        const rotateX = (y / rect.height - 0.5) * -8
+        const updateTilt = () => {
+          frame = 0
+          if (!rect) return
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+          const rotateY = ((pointerX - rect.left) / rect.width - 0.5) * 8
+          const rotateX = ((pointerY - rect.top) / rect.height - 0.5) * -8
+
+          card.style.transform =
+            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        }
+
+        card.addEventListener('pointerenter', () => {
+          // Read layout once, before writing transforms.
+          rect = card.getBoundingClientRect()
+        })
+
+        card.addEventListener('pointermove', (event: PointerEvent) => {
+          if (!rect) return
+          pointerX = event.clientX
+          pointerY = event.clientY
+
+          // At most one style write per animation frame.
+          if (!frame) frame = requestAnimationFrame(updateTilt)
+        })
+
+        card.addEventListener('pointerleave', () => {
+          if (frame) cancelAnimationFrame(frame)
+          frame = 0
+          rect = null
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+        })
       })
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
-      })
-    })
+    }
   }
 </script>
