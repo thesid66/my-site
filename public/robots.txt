@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gautamsiddhartha.com.np/sitemap.xml
