@@ -9,6 +9,7 @@ const { plugin } = Astro.props
 
 const navItems = [
   { label: 'Features', href: '#features' },
+  ...(plugin.slug === 'rupanta-media-converter' ? [{ label: 'Use cases', href: '#use-cases' }] : []),
   { label: 'How it works', href: '#workflow' },
   { label: 'Requirements', href: '#requirements' },
   { label: 'FAQ', href: '#faq' }

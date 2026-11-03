@@ -1,0 +1,93 @@
+---
+const useCases = [
+  {
+    title: 'Convert JPG and JPEG to WebP in WordPress',
+    description:
+      'Generate .webp versions of WordPress JPEG uploads and their supported image sizes while keeping the original JPG files available as a safe fallback.'
+  },
+  {
+    title: 'Convert PNG to AVIF or WebP',
+    description:
+      'Create modern AVIF or WebP copies of PNG images, including supported transparent images, without replacing or deleting the original PNG.'
+  },
+  {
+    title: 'Bulk convert an existing WordPress Media Library',
+    description:
+      'Run background batch conversion for previously uploaded images. Monitor converted, pending and failed attachments through progress indicators and per-file logs.'
+  },
+  {
+    title: 'Automatically convert new WordPress image uploads',
+    description:
+      'Enable WebP, AVIF or both so new JPEG and PNG files added to WordPress Media Library are processed using the server’s supported image encoder.'
+  },
+  {
+    title: 'Deliver modern image formats with Elementor and Divi',
+    description:
+      'Serve generated WebP and AVIF files for compatible WordPress attachment images and supported Elementor or Divi output while retaining an original-image fallback.'
+  },
+  {
+    title: 'Use a free image converter without an external API',
+    description:
+      'Keep image processing on your WordPress hosting server through GD or Imagick. There is no remote conversion service, subscription or plugin-imposed image quota.'
+  }
+]
+---
+
+<section id="use-cases" class="relative overflow-hidden bg-slate-900/50 px-6 py-24">
+  <div class="mx-auto max-w-6xl">
+    <div class="max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#F08252]">
+        Free WordPress image format conversion
+      </p>
+      <h2 class="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+        Convert JPG and PNG to WebP or AVIF in WordPress.
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-slate-300">
+        Rupanta Media Converter is a free WebP and AVIF converter for WordPress.
+        Whether you need a WordPress JPG-to-WebP plugin, an AVIF image converter,
+        automatic image conversion on upload or a bulk Media Library converter,
+        it helps create modern-format copies of supported JPEG and PNG images
+        directly on your server.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {useCases.map((useCase) => (
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-7">
+          <h3 class="text-xl font-bold leading-8 text-white">{useCase.title}</h3>
+          <p class="mt-4 leading-7 text-slate-400">{useCase.description}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-12 grid gap-8 rounded-4xl border border-[#F08252]/25 bg-slate-950/70 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
+      <div>
+        <h3 class="text-2xl font-bold text-white md:text-3xl">
+          How to convert WordPress images to WebP or AVIF
+        </h3>
+        <ol class="mt-6 space-y-4 text-slate-300">
+          <li><strong class="text-[#F08252]">1.</strong> Install and activate <a href="https://wordpress.org/plugins/lightweight-modern-media/" target="_blank" rel="noreferrer" class="font-semibold text-orange-200 underline underline-offset-4 hover:text-white">Rupanta Media Converter on WordPress.org</a>.</li>
+          <li><strong class="text-[#F08252]">2.</strong> Open <strong class="text-white">Media → Rupanta Media Converter</strong> in WordPress admin.</li>
+          <li><strong class="text-[#F08252]">3.</strong> Check whether your server supports WebP or AVIF through GD or Imagick and choose your formats and quality settings.</li>
+          <li><strong class="text-[#F08252]">4.</strong> Run the batch converter for existing images. New supported uploads can convert automatically.</li>
+          <li><strong class="text-[#F08252]">5.</strong> Enable frontend picture output to serve available modern formats alongside an original-image fallback.</li>
+        </ol>
+      </div>
+      <aside class="rounded-3xl border border-white/10 bg-white/5 p-7">
+        <h3 class="text-xl font-bold text-white">
+          What this WordPress image converter does — and does not do
+        </h3>
+        <p class="mt-4 leading-7 text-slate-300">
+          Rupanta generates WebP and AVIF versions of supported WordPress images.
+          It preserves your originals, supports batch conversion and does not require
+          an image-processing API or cloud account.
+        </p>
+        <p class="mt-4 leading-7 text-slate-400">
+          It is not a CDN or a general-purpose image resizing service. Smaller
+          image transfers and site-speed improvements can vary by image,
+          selected quality, browser and hosting configuration.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
