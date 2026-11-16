@@ -24,4 +24,11 @@ assert.match(
 )
 assert.match(html, /<details\b/, 'Accessible FAQ disclosure controls are missing')
 
+for (const screenshot of ['converter', 'settings']) {
+  const url = `/images/rupanta/${screenshot}.webp`
+  assert.ok(html.includes(`src="${url}"`), `The ${screenshot} screenshot is missing from the page`)
+  assert.ok(existsSync(resolve(`dist${url}`)), `The ${screenshot} file is missing from the build`)
+}
+assert.match(html, /href="\/#projects"/, 'Portfolio projects link is missing')
+
 console.log('Plugin page verification passed.')

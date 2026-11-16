@@ -1,6 +1,8 @@
-export type PluginPreviewMetric = {
-  value: string
-  label: string
+export type PluginScreenshot = {
+  src: string
+  width: number
+  height: number
+  alt: string
 }
 
 export type PluginFeature = {
@@ -39,13 +41,9 @@ export type PluginLandingData = {
     title: string
     description: string
   }
-  preview: {
-    title: string
-    metrics: PluginPreviewMetric[]
-    progress: number
-    status: string
-    formats: string[]
-    logs: string[]
+  screenshots: {
+    converter: PluginScreenshot
+    settings: PluginScreenshot
   }
   trustStatements: PluginTrustStatement[]
   features: PluginFeature[]
@@ -59,11 +57,11 @@ export const plugins: PluginLandingData[] = [
   {
     slug: 'rupanta-media-converter',
     name: 'Rupanta Media Converter',
-    badge: 'Rupanta Media Converter · 100% free WordPress plugin',
-    headline: 'Free WebP & AVIF',
-    accentHeadline: 'Converter for WordPress.',
+    badge: 'Rupanta Media Converter',
+    headline: 'Convert WordPress images',
+    accentHeadline: 'to WebP & AVIF',
     description:
-      'Rupanta Media Converter is a free WordPress image converter that turns JPG, JPEG and PNG uploads into WebP or AVIF. Bulk-convert your existing Media Library, automatically convert new images and serve modern formats with the original files as a fallback — all on your own server.',
+      'Bulk convert existing JPG and PNG images or convert new uploads automatically. Rupanta runs on your WordPress server, keeps your originals, and is free on WordPress.org.',
     canonical: 'https://gautamsiddhartha.com.np/plugins/rupanta-media-converter/',
     wordpressUrl: 'https://wordpress.org/plugins/lightweight-modern-media/',
     sourceUrl: 'https://plugins.svn.wordpress.org/lightweight-modern-media/',
@@ -73,22 +71,19 @@ export const plugins: PluginLandingData[] = [
       description:
         'Convert JPG and PNG to WebP or AVIF in WordPress for free. Bulk-convert Media Library images, automate new uploads and serve modern formats without an API.'
     },
-    preview: {
-      title: 'Media Library Overview',
-      metrics: [
-        { value: '428', label: 'Eligible' },
-        { value: '309', label: 'Converted' },
-        { value: '118', label: 'Waiting' },
-        { value: '1', label: 'Failed' }
-      ],
-      progress: 72,
-      status: 'Conversion continues in the background.',
-      formats: ['WebP', 'AVIF'],
-      logs: [
-        'image-hero.jpg — 12 generated files created.',
-        'team-photo.png — WebP and AVIF complete.',
-        'Processing next background batch…'
-      ]
+    screenshots: {
+      converter: {
+        src: '/images/rupanta/converter.webp',
+        width: 1131,
+        height: 895,
+        alt: 'Rupanta Converter tab showing Media Library counts, progress, detected encoders and the conversion log panel'
+      },
+      settings: {
+        src: '/images/rupanta/settings.webp',
+        width: 1162,
+        height: 785,
+        alt: 'Rupanta Settings tab with WebP and AVIF selected and panels for automation, delivery, image quality, batch processing and MIME compatibility'
+      }
     },
     trustStatements: [
       { title: '100% free', description: 'All features included' },
@@ -107,13 +102,13 @@ export const plugins: PluginLandingData[] = [
         icon: '↻',
         title: 'Bulk convert WordPress Media Library images',
         description:
-          'Batch-convert existing WordPress image attachments in the background, with progress updates and logs. You do not need to keep the converter screen open.'
+          'Process existing JPEG and PNG attachments in the background while WordPress cron is running. Reopen the Converter tab to check progress, logs and failed images.'
       },
       {
         icon: '✓',
         title: 'Serve WebP and AVIF with original image fallbacks',
         description:
-          'Deliver generated image sources using compatible picture markup while keeping the original JPG or PNG as a browser fallback.'
+          'Enable picture output to deliver generated formats for compatible images. The original JPG or PNG stays available as the browser fallback.'
       },
       {
         icon: '!',
@@ -136,22 +131,20 @@ export const plugins: PluginLandingData[] = [
     ],
     workflow: [
       {
-        title: 'Choose formats',
-        description: 'Enable WebP, AVIF or both and set the preferred quality.'
+        title: 'Install and activate',
+        description: 'In WordPress, go to Plugins > Add Plugin. Search for Rupanta Media Converter, then install and activate it.'
       },
       {
-        title: 'Convert',
-        description:
-          'Automatically convert new WordPress JPG and PNG uploads; bulk-process existing Media Library attachments in background batches.'
+        title: 'Choose output formats',
+        description: 'Open Media > Rupanta Media Converter. Check which formats your server supports on the Converter tab, then choose WebP, AVIF or both and save your quality settings.'
       },
       {
-        title: 'Deliver',
-        description:
-          'Compatible frontend images receive modern sources and an original fallback.'
+        title: 'Convert your images',
+        description: 'Select Start Conversion on the Converter tab to process existing media. Enable automatic conversion in Settings to process new JPG and PNG uploads.'
       },
       {
-        title: 'Review',
-        description: 'Return anytime to inspect progress, logs and failed-image details.'
+        title: 'Check your results',
+        description: 'Review progress, logs and failures in the Converter tab. To use the generated files on your site, enable picture output and check a page with a converted image.'
       }
     ],
     compatibility: [
@@ -176,7 +169,7 @@ export const plugins: PluginLandingData[] = [
       {
         question: 'Will conversion continue after I leave the page?',
         answer:
-          'Yes. Existing media is processed in persistent background batches through WordPress cron, so the converter screen does not need to remain open.'
+          'Yes. The batch continues while WordPress cron is running, even if you close the browser. If progress stalls, check that WP-Cron or a server cron job is running, then use Refresh Status.'
       },
       {
         question: 'Can I disable WebP or AVIF separately?',
@@ -206,7 +199,7 @@ export const plugins: PluginLandingData[] = [
       {
         question: 'Does the plugin automatically convert new WordPress image uploads?',
         answer:
-          'Yes. With a supported image encoder and the selected format enabled, new JPEG and PNG uploads are converted automatically to WebP, AVIF or both. Existing uploads can be handled separately using batch conversion.'
+          'Yes. In Settings, open Automation and Delivery and enable conversion for new uploads. New JPEG and PNG images use your enabled formats when the server supports them. Use the Converter tab for existing images.'
       },
       {
         question: 'Is this a completely free WordPress WebP and AVIF converter with no quota?',
@@ -226,7 +219,7 @@ export const plugins: PluginLandingData[] = [
       {
         question: 'Does converting images to WebP or AVIF improve WordPress page speed?',
         answer:
-          'Modern formats can reduce image transfer sizes and support image optimisation, but actual results depend on the source image, quality settings, browser, hosting and page setup. Rupanta focuses on image format conversion and compatible delivery; it is not a full CDN or general-purpose image resizing service.'
+          'WebP and AVIF can reduce the amount of image data visitors download. The savings depend on the source image and quality settings. Compare image transfer sizes on a page after enabling picture output.'
       }
     ]
   }

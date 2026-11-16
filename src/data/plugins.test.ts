@@ -28,11 +28,9 @@ test('Rupanta has the approved landing-page structure', () => {
 
   assert.ok(rupanta)
   assert.equal(rupanta.name, 'Rupanta Media Converter')
-  assert.equal(rupanta.headline, 'Modern images.')
-  assert.equal(rupanta.accentHeadline, 'Without the overhead.')
   assert.equal(rupanta.trustStatements.length, 4)
   assert.equal(rupanta.workflow.length, 4)
-  assert.deepEqual(rupanta.preview.logs.slice(0, 0), [])
+  assert.equal(rupanta.workflow[0].title, 'Install and activate')
 })
 
 test('unknown plugin slugs do not resolve', () => {
