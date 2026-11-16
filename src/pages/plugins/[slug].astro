@@ -1,6 +1,6 @@
 ---
 import PluginLandingPage from '../../components/plugins/PluginLandingPage.astro'
-import { plugins, type PluginLandingData } from '../../data/plugins'
+import { plugins, rupantaSocialImage, type PluginLandingData } from '../../data/plugins'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
 export function getStaticPaths() {
@@ -11,12 +11,15 @@ export function getStaticPaths() {
 }
 
 const { plugin } = Astro.props as { plugin: PluginLandingData }
+const socialImage = plugin.slug === 'rupanta-media-converter' ? rupantaSocialImage : undefined
 ---
 
 <BaseLayout
   title={plugin.seo.title}
   description={plugin.seo.description}
   canonical={plugin.canonical}
+  image={socialImage}
+  twitterCard={socialImage ? 'summary_large_image' : undefined}
   plugin={plugin}
 >
   <PluginLandingPage plugin={plugin} />

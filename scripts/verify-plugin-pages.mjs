@@ -31,4 +31,23 @@ for (const screenshot of ['converter', 'settings']) {
 }
 assert.match(html, /href="\/#projects"/, 'Portfolio projects link is missing')
 
-console.log('Plugin page verification passed.')
+const guideRoute = '/guides/convert-images-to-webp-wordpress/'
+const guideCanonical = `https://gautamsiddhartha.com.np${guideRoute}`
+assert.ok(html.includes(`href="${guideRoute}"`), 'Rupanta landing page does not link to the WebP guide')
+
+const guide = readFileSync(resolve(`dist${guideRoute}index.html`), 'utf8')
+assert.equal((guide.match(/<h1\b/g) ?? []).length, 1, 'The WebP guide must contain exactly one h1')
+assert.ok(guide.includes(`rel="canonical" href="${guideCanonical}"`), 'The WebP guide canonical is missing')
+assert.match(guide, /href="\/plugins\/rupanta-media-converter\/"/, 'The WebP guide does not link back to Rupanta')
+assert.ok(readFileSync(resolve('dist/sitemap.xml'), 'utf8').includes(`<loc>${guideCanonical}</loc>`), 'The WebP guide is missing from the sitemap')
+
+const socialImagePath = '/images/rupanta/social-preview.jpg'
+const socialImageUrl = `https://gautamsiddhartha.com.np${socialImagePath}`
+assert.ok(existsSync(resolve(`dist${socialImagePath}`)), 'Rupanta sharing image is missing from the build')
+for (const page of [html, guide]) {
+  assert.ok(page.includes(`property="og:image" content="${socialImageUrl}"`), 'Open Graph image is missing')
+  assert.ok(page.includes(`name="twitter:image" content="${socialImageUrl}"`), 'Social card image is missing')
+  assert.match(page, /name="twitter:card" content="summary_large_image"/, 'Large social card is missing')
+}
+
+console.log('Plugin and WebP guide verification passed.')

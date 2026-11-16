@@ -11,7 +11,7 @@ const escapeXml = (value: string) =>
 
 export const GET: APIRoute = ({ site }) => {
   const origin = site ?? new URL('https://gautamsiddhartha.com.np/')
-  const paths = ['/', ...plugins.map((plugin) => `/plugins/${plugin.slug}/`)]
+  const paths = ['/', '/guides/convert-images-to-webp-wordpress/', ...plugins.map((plugin) => `/plugins/${plugin.slug}/`)]
 
   const entries = paths
     .map((path) => `  <url>

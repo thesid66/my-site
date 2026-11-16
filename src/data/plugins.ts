@@ -53,6 +53,8 @@ export type PluginLandingData = {
   faqs: PluginFaq[]
 }
 
+export const rupantaSocialImage = 'https://gautamsiddhartha.com.np/images/rupanta/social-preview.jpg'
+
 export const plugins: PluginLandingData[] = [
   {
     slug: 'rupanta-media-converter',

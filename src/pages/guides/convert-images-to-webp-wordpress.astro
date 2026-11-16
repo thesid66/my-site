@@ -1,0 +1,113 @@
+---
+import Footer from '../../components/Footer.astro'
+import { getPluginBySlug, rupantaSocialImage } from '../../data/plugins'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const plugin = getPluginBySlug('rupanta-media-converter')
+
+if (!plugin) {
+  throw new Error('The WebP guide requires the Rupanta Media Converter listing.')
+}
+
+const title = 'How to Convert JPG and PNG to WebP in WordPress'
+const description = 'Convert existing WordPress Media Library images to WebP with Rupanta. Follow the setup and bulk conversion steps, then verify a WebP file and its original.'
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const pluginPath = new URL(plugin.canonical).pathname
+const { converter, settings } = plugin.screenshots
+const linkClass = 'font-semibold text-orange-200 underline underline-offset-4 hover:text-white'
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} image={rupantaSocialImage} twitterCard="summary_large_image">
+  <main id="main-content" class="px-6 py-12 sm:py-16 lg:py-20">
+    <article class="mx-auto max-w-3xl">
+      <header class="border-b border-white/10 pb-8">
+        <a href={pluginPath} class={linkClass}>Rupanta Media Converter</a>
+        <h1 class="mt-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">{title}</h1>
+        <p class="mt-5 text-lg leading-8 text-slate-300">
+          Use Rupanta Media Converter to create WebP copies of JPG and PNG images already in your WordPress Media Library.
+          The plugin runs on your server and keeps the original files. This guide shows how to run a batch and check one image on your site.
+        </p>
+      </header>
+
+      <div class="space-y-12 pt-10 leading-7 text-slate-300">
+        <section aria-labelledby="install">
+          <h2 id="install" class="text-2xl font-bold text-white sm:text-3xl">1. Install the WordPress WebP plugin</h2>
+          <p class="mt-4">
+            In WordPress admin, go to <strong>Plugins &gt; Add Plugin</strong>. Search for
+            <a href={plugin.wordpressUrl} class={linkClass}>Rupanta Media Converter on WordPress.org</a>, then install and activate it.
+            Go to <strong>Media &gt; Rupanta Media Converter</strong> and check the encoder indicators on the <strong>Converter</strong> tab.
+            Your server needs GD or Imagick with WebP encoding support.
+          </p>
+          <p class="mt-4">
+            If you want to try the workflow first, use a staging site with a JPG photo and a PNG graphic in its Media Library.
+            The batch processes eligible images across that library.
+          </p>
+        </section>
+
+        <section aria-labelledby="settings">
+          <h2 id="settings" class="text-2xl font-bold text-white sm:text-3xl">2. Enable WebP output for JPG and PNG</h2>
+          <p class="mt-4">
+            Open <strong>Settings &gt; Output Formats</strong> and select <strong>Generate WebP</strong>.
+            For a WebP-only batch, clear <strong>Generate AVIF</strong>. Review the WebP setting under <strong>Image Quality</strong> and select <strong>Save Changes</strong>.
+          </p>
+          <figure class="mt-6">
+            <a href={settings.src} class="block rounded-2xl border border-white/10 bg-white/5 p-2 transition hover:border-[#F08252]">
+              <img {...settings} class="h-auto w-full rounded-xl" loading="lazy" decoding="async" />
+            </a>
+            <figcaption class="mt-2 text-sm text-slate-400">The Settings tab shows where to select WebP and AVIF output.</figcaption>
+          </figure>
+        </section>
+
+        <section aria-labelledby="bulk-conversion">
+          <h2 id="bulk-conversion" class="text-2xl font-bold text-white sm:text-3xl">3. Bulk convert images to WebP in WordPress</h2>
+          <p class="mt-4">
+            Return to the <strong>Converter</strong> tab. Under <strong>Convert Existing Media</strong>, select <strong>Start Conversion</strong>.
+            WordPress cron processes existing JPG and PNG attachments in batches, so you can leave the page while cron is running.
+          </p>
+          <p class="mt-4">
+            When you return, use <strong>Refresh Status</strong> to check the converted and failed counts.
+            If the job stalls, check that WordPress cron or your host’s scheduled cron job is running.
+            If an image fails, read its recorded reason before retrying.
+          </p>
+          <figure class="mt-6">
+            <a href={converter.src} class="block rounded-2xl border border-white/10 bg-white/5 p-2 transition hover:border-[#F08252]">
+              <img {...converter} class="h-auto w-full rounded-xl" loading="lazy" decoding="async" />
+            </a>
+            <figcaption class="mt-2 text-sm text-slate-400">The Converter tab shows library counts, progress, encoder support and the log panel.</figcaption>
+          </figure>
+        </section>
+
+        <section aria-labelledby="verify">
+          <h2 id="verify" class="text-2xl font-bold text-white sm:text-3xl">4. Verify a WebP file and its original</h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-6">
+            <li>Open the JPG attachment in the Media Library and copy its file URL. Repeat for the PNG. Open those URLs to confirm the originals remain available.</li>
+            <li>In Rupanta’s <strong>Settings &gt; Automation and Delivery</strong>, enable <strong>Serve generated formats with picture markup on the front end</strong> and save.</li>
+            <li>Open a page that displays a converted Media Library image. Reload with your browser’s Network panel open and check the image response for <code class="text-orange-200">Content-Type: image/webp</code>. On the same image’s <code class="text-orange-200">&lt;picture&gt;</code> element, the fallback <code class="text-orange-200">&lt;img&gt;</code> can still point to the JPG or PNG.</li>
+          </ol>
+          <p class="mt-4">
+            If the page serves the original, check that picture output is enabled, the attachment has been converted, and the page uses compatible WordPress image markup. Reload after clearing any cached page output.
+          </p>
+        </section>
+
+        <section aria-labelledby="new-uploads">
+          <h2 id="new-uploads" class="text-2xl font-bold text-white sm:text-3xl">Automatically convert new uploads</h2>
+          <p class="mt-4">
+            In <strong>Settings &gt; Automation and Delivery</strong>, enable <strong>Convert new image uploads automatically</strong>
+            and save. New JPG and PNG uploads will use the formats you enabled. To generate AVIF too, check that your server supports AVIF encoding and select <strong>Generate AVIF</strong>.
+          </p>
+        </section>
+      </div>
+
+      <aside class="mt-12 rounded-3xl border border-[#F08252]/25 bg-white/5 p-6 sm:p-8">
+        <h2 class="text-2xl font-bold text-white">Get Rupanta Media Converter</h2>
+        <p class="mt-3 leading-7 text-slate-300">
+          See the <a href={pluginPath} class={linkClass}>Rupanta WebP and AVIF converter overview</a> for supported images, hosting requirements and FAQs.
+        </p>
+        <a href={plugin.wordpressUrl} class="mt-5 inline-flex min-h-12 items-center rounded-full bg-[#F08252] px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-orange-500">
+          Get it on WordPress.org
+        </a>
+      </aside>
+    </article>
+  </main>
+  <Footer linkPrefix="/" />
+</BaseLayout>
